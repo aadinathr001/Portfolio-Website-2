@@ -24,7 +24,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
   SHORT_INTRO: "I engineer distributed neural architectures, autonomous agent workflows, and resilient full-stack systems. Passionate about turning complex multimodal research into simple, high-impact products.",
   PROFILE_IMAGE: "/src/assets/images/hero-img.jpeg",
   RESUME_LINK: "#resume",
-  LOCATION: "Bengaluru, India",
+  LOCATION: "Tiruvalla, Kerala, India",
   STATUS: "",
   EMAIL: "aadinath.r2004@gmail.com",
   GITHUB: "https://github.com/aadinathr001",
@@ -81,8 +81,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     liveUrl: "https://paperlens-9egl.onrender.com",
     githubUrl: "https://github.com/aadinathr001/PaperLens",
     metrics: [
-      { label: "Autonomous Success", value: "94.6%" },
-      { label: "DAG Depth", value: "12 nodes" }
+      
     ]
   },
   {
@@ -97,8 +96,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     liveUrl: "https://simple-chatbot-kkxd.onrender.com",
     githubUrl: "https://github.com/aadinathr001/simple-chatbot",
     metrics: [
-      { label: "Context Recall", value: "92.4%" },
-      { label: "P99 Query Time", value: "14ms" }
+    
     ]
   },
   {
@@ -113,8 +111,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     liveUrl: "https://weather-app-gtvc.onrender.com",
     githubUrl: "https://github.com/aadinathr001/weather-app",
     metrics: [
-      { label: "WebGPU FPS", value: "60 FPS" },
-      { label: "GitHub Stars", value: "8.2k" }
+      
     ]
   },
   // {
@@ -195,38 +192,35 @@ export interface EducationItemData {
   grade?: string;
   description: string;
   skills: string[];
-  highlights: string[];
+  highlights?: string[];
 }
 
 export const EDUCATION_DATA: EducationItemData[] = [
   {
-    degree: "B.Tech in Computer Science and Engineering",
-    institution: "National Institute of Technology (NIT)",
+    degree: "B.Tech in Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+    institution: "St.Thomas College of Engineering & Technology (STCET)",
     location: "Kerala, India",
-    period: "2018 — 2022",
-    field: "Computer Science & Artificial Intelligence",
-    grade: "8.9 / 10 CGPA",
+    period: "2022-2026",
+    field: "Artificial Intelligence & Machine Learning",
+    grade: "7.89 / 10 CGPA",
     description: "Comprehensive curriculum spanning deep learning, distributed algorithms, data structures, and computer vision systems.",
     skills: ["Data Structures & Algorithms", "Deep Learning", "Operating Systems", "Distributed Computing", "Linear Algebra", "Database Management"],
     highlights: [
-      "Graduated First Class with Distinction; recipient of Academic Merit Scholarship.",
-      "Published undergraduate thesis on 'Adaptive Attention Mechanisms for Real-time Video Object Segmentation'.",
-      "Led the University Machine Learning & Algorithmic Society, mentoring over 300 junior students."
+      "NSS KTU CARE Unit 553 Coordinator, organizing community outreach and technical workshops for students.",
+      "Class Representative for the AI/ML department, liaising between faculty and students to enhance academic experiences.",
     ]
   },
   {
     degree: "Higher Secondary Certificate (HSC) in Science",
-    institution: "Kendriya Vidyalaya",
+    institution: "St.Mary's Higher Secondary School,Thiruvalla (CBSE)",
     location: "Kerala, India",
-    period: "2016 — 2018",
+    period: "2022",
     field: "Physics, Chemistry, Mathematics, Computer Science",
-    grade: "95.6%",
+    grade: "72%",
     description: "Foundational studies in higher mathematics, analytical physics, and early algorithmic programming in C++ and Python.",
     skills: ["Calculus", "Probability & Statistics", "Analytical Mechanics", "C++", "Python Fundamentals"],
-    highlights: [
-      "Ranked in top 1% nationally in national competitive science talent examination.",
-      "Won 1st prize at State Level Science Olympiad for algorithmic solar path tracking simulation."
-    ]
+    // highlights: [
+    //   ]
   }
 ];
 

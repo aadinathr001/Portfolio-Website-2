@@ -124,6 +124,7 @@ export const EducationItem: React.FC<EducationItemProps> = ({
         </button>
 
         {/* Expandable Achievements / Details */}
+        {education.highlights && education.highlights.length > 0 && (
         <div
           className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
             isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 pointer-events-none"
@@ -146,6 +147,7 @@ export const EducationItem: React.FC<EducationItemProps> = ({
             </div>
           </div>
         </div>
+        )}
       </div>
     </div>
   );
