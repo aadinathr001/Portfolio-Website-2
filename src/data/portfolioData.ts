@@ -137,50 +137,39 @@ export interface ExperienceItemData {
   company: string;
   location: string;
   period: string;
-  description: string;
+  description?: string;
   technologies: string[];
   highlights: string[];
 }
 
 export const EXPERIENCE_DATA: ExperienceItemData[] = [
   {
-    role: "Senior AI/ML Research Engineer",
-    company: "NeuralPulse Labs",
-    location: "Bengaluru, India (Hybrid)",
-    period: "2023 — Present",
-    description: "Leading the core inference optimization and vision-language foundation model deployment team for enterprise edge applications.",
-    technologies: ["PyTorch", "TensorRT", "CUDA C++", "Triton Server", "Python", "FastAPI", "Ray"],
+    role: "Front-end Intern",
+    company: "DataPMI Technologies LLP",
+    location: "Infopark, Kochi, India (On-site)",
+    period: "01-06-2025 — 31-06-2025",
+    // description: "Leading the core inference optimization and vision-language foundation model deployment team for enterprise edge applications.",
+    technologies: ["Node.js", "HTML","JavaScript", "Python", "FastAPI", "Git", "GitHub","React","Tailwind CSS"],
     highlights: [
-      "Architected speculative decoding pipeline for multimodal models, reducing median latency by 43% on edge GPUs.",
-      "Engineered automated model quantization (FP8/INT4) workflows with minimal perplexity degradation (<0.4%).",
-      "Mentored a team of 6 engineers across distributed training infrastructure and model evaluation benchmarks."
+      "Collaborated with a cross-functional teams on Prolex AI, contributing to feature implementation and iterative product releases.",
+      "Integrated front-end components with backend APIs using FastAPI, supporting end-to-end feature delivery.",
+      "Developed responsive front-end components using HTML, CSS, and JavaScript, translating design requirements into user-facing interfaces.",
+      "Used Git and GitHub for version control, branch-based development, and collaborative code workflows."
     ]
   },
   {
-    role: "Machine Learning & Full-Stack Engineer",
-    company: "Kinetix Technologies",
-    location: "Bengaluru, India",
-    period: "2022 — 2023",
-    description: "Built end-to-end predictive telemetry pipelines, autonomous agent decision graphs, and interactive client-facing dashboards.",
-    technologies: ["Python", "TensorFlow", "React", "Node.js", "Docker", "PostgreSQL", "Kafka"],
+    role: "Software Development Intern",
+    company: "Zyncrypt Technologies ",
+    location: "Kochi, India",
+    period: "02-07-2024 — 16-07-2024",
+    // description: "Built end-to-end predictive telemetry pipelines, autonomous agent decision graphs, and interactive client-facing dashboards.",
+    technologies: ["C", "Linux", "Networking", "PowerShell", "Git", "GitHub"],
     highlights: [
-      "Deployed streaming anomaly detection system handling 450,000 events/sec with sub-second alerting.",
-      "Designed and delivered the core analytics web portal used daily by 140+ enterprise operations teams.",
-      "Reduced cloud computing costs by 34% through proactive GPU instance scheduling and auto-scaling pods."
+      " Worked with Linux environments and networking fundamentals while supporting day-to-day software development tasks.",
+      "Participated in task coordination and project workflows, gaining practical experience with collaborative software development practices."
     ]
   },
-  {
-    role: "AI Software Engineering Intern",
-    company: "Apex Computational Systems",
-    location: "Hyderabad, India",
-    period: "2021 — 2022",
-    description: "Researched graph neural networks (GNNs) for recommendation systems and developed microservices in Python and TypeScript.",
-    technologies: ["Python", "PyTorch Geometric", "FastAPI", "TypeScript", "Redis"],
-    highlights: [
-      "Implemented heterogeneous graph convolutions that improved cold-start recommendation accuracy by 18%.",
-      "Co-authored internal technical documentation and open-source benchmark suites for vector search."
-    ]
-  }
+  
 ];
 
 export interface EducationItemData {
