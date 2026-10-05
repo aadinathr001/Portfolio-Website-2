@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowDown, Mail, FileText, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import { PORTFOLIO_CONFIG } from "../data/portfolioData";
-
+import image1 from "../assets/hero.jpeg";
 interface HeroProps {
   onOpenResume: () => void;
 }
@@ -14,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
   const name = PORTFOLIO_CONFIG.NAME;
   const role = PORTFOLIO_CONFIG.ROLE;
   const shortIntro = PORTFOLIO_CONFIG.SHORT_INTRO;
-  const profileImage = PORTFOLIO_CONFIG.PROFILE_IMAGE;
+  const profileImage = image1;
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
