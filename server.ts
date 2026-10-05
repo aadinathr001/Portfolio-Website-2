@@ -10,6 +10,11 @@ import {
 
 dotenv.config();
 
+// console.log("PORT:", process.env.PORT);
+// console.log("GROQ_API_KEY exists:", !!process.env.GROQ_API_KEY);
+// console.log("GROQ_MODEL:", process.env.GROQ_MODEL);
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
