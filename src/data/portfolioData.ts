@@ -22,7 +22,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
   NAME: "Aadinath R",
   ROLE: "AI/ML Engineer & Full-Stack Developer",
   SHORT_INTRO: "I engineer distributed neural architectures, autonomous agent workflows, and resilient full-stack systems. Passionate about turning complex multimodal research into simple, high-impact products.",
-  PROFILE_IMAGE: "/src/assets/images/hero-img.jpeg",
+  PROFILE_IMAGE: "/src/assets/hero-img.jpeg",
   RESUME_LINK: "#resume",
   LOCATION: "Tiruvalla, Kerala, India",
   STATUS: "",
@@ -56,7 +56,7 @@ export const FEATURED_PROJECT: ProjectItem = {
   impact: "Achieved 4.2x throughput increase and 47% reduction in GPU VRAM consumption across 1.2M daily visual tokens.",
   category: "Computer Vision",
   technologies: ["PyTorch", "TensorRT", "CUDA", "FastAPI", "WebRTC", "React"],
-  imageUrl: "/src/assets/images/project_featured_neural_1791209209904.jpg",
+  imageUrl: "/src/assets/project_featured_neural_1791209209904.jpg",
   liveUrl: "https://omni-percept-demo.vercel.app",
   githubUrl: "https://github.com/aadinath-r/omni-percept-engine",
   isFeatured: true,
@@ -77,7 +77,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     impact: "xxxxx",
     category: "Agentic Systems",
     technologies: ["Python", "LangGraph", "FastAPI", "TypeScript", "Redis", "Docker"],
-    imageUrl: "/src/assets/images/project_agent_flow_1791209224739.jpg",
+    imageUrl: "/src/assets/project_agent_flow_1791209224739.jpg",
     liveUrl: "https://paperlens-9egl.onrender.com",
     githubUrl: "https://github.com/aadinathr001/PaperLens",
     metrics: [
@@ -92,7 +92,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     impact: "xxxxxxx",
     category: "AI / ML",
     technologies: ["PyTorch", "Qdrant", "Neo4j", "Hugging Face", "Go", "Next.js"],
-    imageUrl: "/src/assets/images/project_rag_engine_1791209236235.jpg",
+    imageUrl: "/src/assets/project_rag_engine_1791209236235.jpg",
     liveUrl: "https://simple-chatbot-kkxd.onrender.com",
     githubUrl: "https://github.com/aadinathr001/simple-chatbot",
     metrics: [
@@ -107,7 +107,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     impact: "xxxxxxx",
     category: "Computer Vision",
     technologies: ["TypeScript", "WebGPU", "PyTorch", "Diffusers", "Tailwind CSS", "Vite"],
-    imageUrl: "/src/assets/images/project_featured_neural_1791209209904.jpg",
+    imageUrl: "/src/assets/project_featured_neural_1791209209904.jpg",
     liveUrl: "https://weather-app-gtvc.onrender.com",
     githubUrl: "https://github.com/aadinathr001/weather-app",
     metrics: [
@@ -122,7 +122,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
   //   impact: "xxxxxxx",
   //   category: "Full-Stack",
   //   technologies: ["Kubernetes", "Prometheus", "Kafka", "Python", "React", "PostgreSQL"],
-  //   imageUrl: "/src/assets/images/project_agent_flow_1791209224739.jpg",
+  //   imageUrl: "/src/assets/project_agent_flow_1791209224739.jpg",
   //   liveUrl: "https://synapse-mlops.vercel.app",
   //   githubUrl: "https://github.com/aadinath-r/synapse-mlops",
   //   metrics: [
