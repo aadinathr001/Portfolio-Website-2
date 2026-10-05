@@ -22,13 +22,13 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
   NAME: "Aadinath R",
   ROLE: "AI/ML Engineer & Full-Stack Developer",
   SHORT_INTRO: "I engineer distributed neural architectures, autonomous agent workflows, and resilient full-stack systems. Passionate about turning complex multimodal research into simple, high-impact products.",
-  PROFILE_IMAGE: "/src/assets/images/profile_avatar_1791209194369.jpg",
+  PROFILE_IMAGE: "/src/assets/images/hero-img.jpeg",
   RESUME_LINK: "#resume",
   LOCATION: "Bengaluru, India",
   STATUS: "",
   EMAIL: "aadinath.r2004@gmail.com",
-  GITHUB: "https://github.com/aadinath-r",
-  LINKEDIN: "https://linkedin.com/in/aadinath-r",
+  GITHUB: "https://github.com/aadinathr001",
+  LINKEDIN: "https://linkedin.com/in/aadinathr",
   TWITTER: "https://x.com/aadinath_dev",
   HUGGINGFACE: "https://huggingface.co/aadinath-r"
 };
@@ -70,16 +70,16 @@ export const FEATURED_PROJECT: ProjectItem = {
 export const PROJECTS_DATA: ProjectItem[] = [
   FEATURED_PROJECT,
   {
-    id: "project-nexus-agents",
-    title: "NexusAgent Swarm",
-    subtitle: "Hierarchical Multi-Agent Task Orchestration",
-    description: "Distributed autonomous agent network featuring dynamic DAG routing, reflective code generation, and verifiable deterministic tool execution.",
-    impact: "Automated 82% of enterprise code review workflows with human-in-the-loop safety gating.",
+    id: "project",
+    title: "PaperLens--Research Paper Analysis Platform",
+    subtitle: "",
+    description: "Session based research paper analysis platform with RAG and citations for pdf/txt",
+    impact: "xxxxx",
     category: "Agentic Systems",
     technologies: ["Python", "LangGraph", "FastAPI", "TypeScript", "Redis", "Docker"],
     imageUrl: "/src/assets/images/project_agent_flow_1791209224739.jpg",
-    liveUrl: "https://nexus-agent-mesh.vercel.app",
-    githubUrl: "https://github.com/aadinath-r/nexus-agent-mesh",
+    liveUrl: "https://paperlens-9egl.onrender.com",
+    githubUrl: "https://github.com/aadinathr001/PaperLens",
     metrics: [
       { label: "Autonomous Success", value: "94.6%" },
       { label: "DAG Depth", value: "12 nodes" }
@@ -87,15 +87,15 @@ export const PROJECTS_DATA: ProjectItem[] = [
   },
   {
     id: "project-vector-hypergraph",
-    title: "HyperVector RAG Core",
+    title: "AI Assistant",
     subtitle: "Graph-Augmented Semantic Retrieval Engine",
-    description: "Hybrid vector + graph knowledge retrieval framework combining sparse BM25, dense HNSW embeddings, and entity relation hops for high-precision document synthesis.",
-    impact: "Boosted retrieval context recall from 68% to 92.4% on complex multi-hop technical documentation queries.",
+    description: "Web based AI assistant with python backend and REST endpoints demonstrating LLM request validation andrate limiting.",
+    impact: "xxxxxxx",
     category: "AI / ML",
     technologies: ["PyTorch", "Qdrant", "Neo4j", "Hugging Face", "Go", "Next.js"],
     imageUrl: "/src/assets/images/project_rag_engine_1791209236235.jpg",
-    liveUrl: "https://hypervector-rag.vercel.app",
-    githubUrl: "https://github.com/aadinath-r/hypervector-rag-core",
+    liveUrl: "https://simple-chatbot-kkxd.onrender.com",
+    githubUrl: "https://github.com/aadinathr001/simple-chatbot",
     metrics: [
       { label: "Context Recall", value: "92.4%" },
       { label: "P99 Query Time", value: "14ms" }
@@ -103,36 +103,36 @@ export const PROJECTS_DATA: ProjectItem[] = [
   },
   {
     id: "project-diffusion-canvas",
-    title: "LatentFlow Studio",
-    subtitle: "Interactive Latent Space Visual Synthesis Canvas",
-    description: "WebGPU-accelerated visual experimentation studio providing layer-by-layer attention mask steering and real-time diffusion trajectory manipulation.",
-    impact: "Over 8,000 community research stars and deployed as a teaching sandbox in academic machine learning labs.",
+    title: "Weather Web App",
+    subtitle: "",
+    description: "A simple weather app to demonstrate Flask backend inegrated to a weather API",
+    impact: "xxxxxxx",
     category: "Computer Vision",
     technologies: ["TypeScript", "WebGPU", "PyTorch", "Diffusers", "Tailwind CSS", "Vite"],
     imageUrl: "/src/assets/images/project_featured_neural_1791209209904.jpg",
-    liveUrl: "https://latentflow-studio.vercel.app",
-    githubUrl: "https://github.com/aadinath-r/latentflow-studio",
+    liveUrl: "https://weather-app-gtvc.onrender.com",
+    githubUrl: "https://github.com/aadinathr001/weather-app",
     metrics: [
       { label: "WebGPU FPS", value: "60 FPS" },
       { label: "GitHub Stars", value: "8.2k" }
     ]
   },
-  {
-    id: "project-cloud-mlops",
-    title: "Synapse MLOps Platform",
-    subtitle: "Zero-Downtime Model Deployment & Drift Sentinel",
-    description: "Production observability pipeline tracking statistical concept drift, automated canary rollouts, and shadow inferencing for deep learning models at scale.",
-    impact: "Eliminated silent production model degradation, cutting mean-time-to-detection from 4 days to 8 minutes.",
-    category: "Full-Stack",
-    technologies: ["Kubernetes", "Prometheus", "Kafka", "Python", "React", "PostgreSQL"],
-    imageUrl: "/src/assets/images/project_agent_flow_1791209224739.jpg",
-    liveUrl: "https://synapse-mlops.vercel.app",
-    githubUrl: "https://github.com/aadinath-r/synapse-mlops",
-    metrics: [
-      { label: "MTTD Reduction", value: "99%" },
-      { label: "Cluster Uptime", value: "99.99%" }
-    ]
-  }
+  // {
+  //   id: "project-cloud-mlops",
+  //   title: "Synapse MLOps Platform",
+  //   subtitle: "Zero-Downtime Model Deployment & Drift Sentinel",
+  //   description: "Production observability pipeline tracking statistical concept drift, automated canary rollouts, and shadow inferencing for deep learning models at scale.",
+  //   impact: "xxxxxxx",
+  //   category: "Full-Stack",
+  //   technologies: ["Kubernetes", "Prometheus", "Kafka", "Python", "React", "PostgreSQL"],
+  //   imageUrl: "/src/assets/images/project_agent_flow_1791209224739.jpg",
+  //   liveUrl: "https://synapse-mlops.vercel.app",
+  //   githubUrl: "https://github.com/aadinath-r/synapse-mlops",
+  //   metrics: [
+  //     { label: "MTTD Reduction", value: "99%" },
+  //     { label: "Cluster Uptime", value: "99.99%" }
+  //   ]
+  // }
 ];
 
 export interface ExperienceItemData {
