@@ -114,7 +114,7 @@ export const Contact: React.FC = () => {
                     <Linkedin className="w-4 h-4 text-[#0A66C2]" />
                     <span>LinkedIn</span>
                   </a>
-                  <a
+                  {/* <a
                     href={PORTFOLIO_CONFIG.TWITTER}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -122,7 +122,7 @@ export const Contact: React.FC = () => {
                   >
                     <Twitter className="w-4 h-4 text-cyan-400" />
                     <span>Twitter/X</span>
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>

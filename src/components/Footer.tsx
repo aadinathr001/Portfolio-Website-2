@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
             >
               <Linkedin className="w-4 h-4" />
             </a>
-            <a
+            {/* <a
               href={PORTFOLIO_CONFIG.TWITTER}
               target="_blank"
               rel="noopener noreferrer"
@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
               aria-label="Twitter/X Profile"
             >
               <Twitter className="w-4 h-4" />
-            </a>
+            </a> */}
 
             <button
               onClick={scrollToTop}
