@@ -2,6 +2,16 @@ import React, { useState, useMemo } from "react";
 import { ExternalLink, Github, ArrowRight, Layers, Sparkles, Activity } from "lucide-react";
 import { FEATURED_PROJECT, PROJECTS_DATA, ProjectItem } from "../data/portfolioData";
 
+import image1 from "../assets/1.jpg";
+import image2 from "../assets/2.jpg";
+import image3 from "../assets/3.jpg";
+
+const projectImages: Record<string, string> = {
+  "/src/assets/1.jpg": image1,
+  "/src/assets/2.jpg": image2,
+  "/src/assets/3.jpg": image3,
+};
+
 export const Projects: React.FC = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -66,7 +76,7 @@ export const Projects: React.FC = () => {
 
                 <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/10 shadow-xl">
                   <img
-                    src={FEATURED_PROJECT.imageUrl}
+                    src={projectImages[FEATURED_PROJECT.imageUrl] ?? FEATURED_PROJECT.imageUrl}
                     alt={FEATURED_PROJECT.title}
                     className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105"
                     referrerPolicy="no-referrer"
@@ -178,7 +188,7 @@ export const Projects: React.FC = () => {
                     {/* Thumbnail Image */}
                     <div className="relative aspect-[16/10] rounded-lg overflow-hidden mb-4 bg-slate-950 border border-white/5">
                       <img
-                        src={project.imageUrl}
+                        src={projectImages[project.imageUrl] ?? project.imageUrl}
                         alt={project.title}
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                         referrerPolicy="no-referrer"
@@ -314,7 +324,7 @@ export const Projects: React.FC = () => {
                   <div>
                     <div className="relative aspect-[16/10] rounded-lg overflow-hidden mb-4 bg-slate-950 border border-white/5">
                       <img
-                        src={project.imageUrl}
+                        src={projectImages[project.imageUrl] ?? project.imageUrl}
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         referrerPolicy="no-referrer"
