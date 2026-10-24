@@ -43,29 +43,27 @@ export const TechStack: React.FC = () => {
 
         {/* Category Navigation Bar */}
         <div className="mb-12 border-b border-[#e6e6e1]">
-          <div className="flex items-center gap-3 sm:gap-6 overflow-x-auto pb-3 scrollbar-none">
-            {TECH_CATEGORIES.map((category, idx) => {
+          <div className="flex items-center gap-4 sm:gap-8 overflow-x-auto pb-3 scrollbar-none">
+            {TECH_CATEGORIES.map((category) => {
               const isActive = activeCategory === category;
               const count = TECH_STACK_DATA[category]?.length || 0;
-              const numStr = String(idx + 1).padStart(2, "0");
 
               return (
                 <button
                   key={category}
                   onClick={() => handleCategoryChange(category)}
-                  className={`group relative pb-3 px-1 text-xs font-mono uppercase tracking-wider transition-colors flex items-center gap-2 whitespace-nowrap cursor-pointer ${
-                    isActive ? "text-[#121212] font-semibold" : "text-[#767670] hover:text-[#121212]"
+                  className={`group relative pb-3 px-1 text-sm sm:text-base font-mono uppercase tracking-wider transition-colors flex items-baseline gap-1 whitespace-nowrap cursor-pointer ${
+                    isActive ? "text-[#121212] font-bold" : "text-[#767670] hover:text-[#121212]"
                   }`}
                 >
-                  <span
-                    className={`text-[10px] font-mono ${
-                      isActive ? "text-[#c26d52] font-bold" : "text-[#c26d52]/70"
+                  <span>{category}</span>
+                  <sup
+                    className={`text-[10px] sm:text-xs font-mono font-semibold transition-colors ${
+                      isActive ? "text-[#c26d52]" : "text-[#8c8c84] group-hover:text-[#121212]"
                     }`}
                   >
-                    {numStr}
-                  </span>
-                  <span>{category}</span>
-                  <span className="text-[10px] text-[#9a9a92]">({count})</span>
+                    {count}
+                  </sup>
 
                   {isActive && (
                     <span
