@@ -16,11 +16,10 @@ When hosting a Vite SPA on GitHub Pages under a repository subpath (e.g. `https:
    - Because the script returned 404, the React root never initialized, resulting in a blank page.
    - **Fix Applied**: Added `base: './'` to `vite.config.ts` so all assets are resolved relative to the deployment URL.
 
-2. **Case Sensitivity in File Import**:
-   - `src/components/ResumeModal.tsx` was importing `../assets/aadinath_r_resume.pdf?url`.
-   - The file on disk was named `Aadinath_R_Resume.pdf`.
-   - On Linux-based GitHub Actions runners, this casing mismatch threw `[UNRESOLVED_IMPORT]` and aborted the build job.
-   - **Fix Applied**: Updated `ResumeModal.tsx` import to match the exact casing `Aadinath_R_Resume.pdf`, and provided fallback lowercased symlink/copies in both `src/assets` and `public/assets`.
+2. **Case Sensitivity & Asset Resolution**:
+   - `src/components/ResumeModal.tsx` now imports `../assets/aadinath_r_resume.pdf?url`.
+   - Both `aadinath_r_resume.pdf` and `Aadinath_R_Resume.pdf` are mirrored in `src/assets` and `public/assets/` to ensure zero casing mismatches on Linux-based GitHub Actions runners or local Windows/macOS clones.
+   - `hero.webp` is synced across `src/assets/images/` and `public/assets/images/` so `./assets/images/hero.webp` resolves smoothly in dev and production.
 
 3. **Asset Paths in `portfolioData.ts`**:
    - Several image paths were prefixed with `/public/` or `/src/` (e.g. `/public/assets/images/hero.jpg`, `/src/assets/images/...`).

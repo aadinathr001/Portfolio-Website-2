@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { X, Printer, Download, ExternalLink } from "lucide-react";
 import { PORTFOLIO_CONFIG } from "../data/portfolioData";
-import resumeUrl from "../assets/aadinath_r_resume.pdf";
+import resumeUrl from "../assets/aadinath_r_resume.pdf?url";
 
 interface ResumeModalProps {
   isOpen: boolean;
