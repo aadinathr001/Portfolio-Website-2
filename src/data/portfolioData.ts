@@ -10,27 +10,27 @@ export interface PortfolioConfig {
   PROFILE_IMAGE: string;
   RESUME_LINK: string;
   LOCATION: string;
-  STATUS: string;
+  STATUS?: string;
   EMAIL: string;
   GITHUB: string;
-  LINKEDIN: string;
-  TWITTER: string;
-  HUGGINGFACE: string;
+  LINKEDIN?: string;
+  TWITTER?: string;
+  HUGGINGFACE?: string;
 }
 
 export const PORTFOLIO_CONFIG: PortfolioConfig = {
   NAME: "Aadinath R",
   ROLE: "AI/ML Engineer & Full-Stack Developer",
   SHORT_INTRO: "I engineer distributed neural architectures, autonomous agent workflows, and resilient full-stack systems. Passionate about turning complex multimodal research into simple, high-impact products.",
-  PROFILE_IMAGE: "/src/assets/hero-img.jpeg",
+  PROFILE_IMAGE: "/public/assets/images/hero.jpg",
   RESUME_LINK: "#resume",
-  LOCATION: "Tiruvalla, Kerala, India",
+  LOCATION: "Bengaluru, India",
   STATUS: "",
   EMAIL: "aadinath.r2004@gmail.com",
-  GITHUB: "https://github.com/aadinathr001",
-  LINKEDIN: "https://linkedin.com/in/aadinathr",
-  TWITTER: "https://x.com/aadinath_dev",
-  HUGGINGFACE: "https://huggingface.co/aadinath-r"
+  GITHUB: "https://github.com/aadinath-r",
+  LINKEDIN: "https://linkedin.com/in/aadinath-r",
+  // TWITTER: "https://x.com/aadinath_dev",
+  // HUGGINGFACE: "https://huggingface.co/aadinath-r"
 };
 
 export interface ProjectItem {
@@ -38,7 +38,7 @@ export interface ProjectItem {
   title: string;
   subtitle: string;
   description: string;
-  impact: string;
+  impact?: string;
   category: "AI / ML" | "Computer Vision" | "Agentic Systems" | "Full-Stack";
   technologies: string[];
   imageUrl: string;
@@ -49,87 +49,90 @@ export interface ProjectItem {
 }
 
 export const FEATURED_PROJECT: ProjectItem = {
-  id: "project-omni-vision",
-  title: "OmniPercept Neural Engine",
+  id: "project-auditSum",
+  title: "AuditSum",
   subtitle: "Real-time Edge Multimodal Perception & Spatial Reasoning",
   description: "A low-latency vision-language model serving system designed for real-time robotic telemetry and zero-shot visual question answering, operating at sub-35ms inference latency.",
   impact: "Achieved 4.2x throughput increase and 47% reduction in GPU VRAM consumption across 1.2M daily visual tokens.",
   category: "Computer Vision",
   technologies: ["PyTorch", "TensorRT", "CUDA", "FastAPI", "WebRTC", "React"],
-  imageUrl: "/src/assets/1.jpg",
+  imageUrl: "/public/assets/images/project_featured_neural_1791209209904.jpg",
   liveUrl: "https://omni-percept-demo.vercel.app",
-  githubUrl: "https://github.com/aadinath-r/omni-percept-engine",
+  githubUrl: "https://github.com/aadinathr001/auditsum",
   isFeatured: true,
-  metrics: [
-    { label: "Inference Latency", value: "32ms" },
-    { label: "Throughput Gain", value: "+320%" },
-    { label: "Daily Queries", value: "1.2M" }
-  ]
+  // metrics: [
+  //   { label: "Inference Latency", value: "32ms" },
+  //   { label: "Throughput Gain", value: "+320%" },
+  //   { label: "Daily Queries", value: "1.2M" }
+  // ]
 };
 
 export const PROJECTS_DATA: ProjectItem[] = [
   FEATURED_PROJECT,
   {
-    id: "project",
-    title: "PaperLens--Research Paper Analysis Platform",
-    subtitle: "",
-    description: "Session based research paper analysis platform with RAG and citations for pdf/txt",
-    impact: "xxxxx",
+    id: "project-frameMind",
+    title: "FrameMind",
+    subtitle: "YouTube Video Q&A & Study Notebook",
+    description: "FrameMind is an AI-powered video research and study workspace that transforms YouTube videos into interactive learning resources. It extracts video transcripts, generates structured summaries, identifies key takeaways, and enables users to ask questions with timestamp-grounded answers.The platform supports multiple AI providers, including Ollama (Local), Groq, Gemini, and OpenAI, allowing users to choose between private local inference and cloud-based models.",
+    // impact: "",
     category: "Agentic Systems",
-    technologies: ["Python", "LangGraph", "FastAPI", "TypeScript", "Redis", "Docker"],
-    imageUrl: "/src/assets/2.jpg",
-    liveUrl: "https://paperlens-9egl.onrender.com",
-    githubUrl: "https://github.com/aadinathr001/PaperLens",
-    metrics: [
-      
-    ]
+    technologies: ["Python", "LangGraph", "FastAPI", "TypeScript", "Node.js", "React.js", "Tailwind CSS"],
+    imageUrl: "/src/assets/images/project_agent_flow_1791209224739.jpg",
+    // liveUrl: "https://nexus-agent-mesh.vercel.app",
+    githubUrl: "https://github.com/aadinathr001/framemind",
+    // metrics: [
+    //   { label: "Autonomous Success", value: "94.6%" },
+    //   { label: "DAG Depth", value: "12 nodes" }
+    // ]
   },
   {
-    id: "project-vector-hypergraph",
-    title: "AI Assistant",
-    subtitle: "Graph-Augmented Semantic Retrieval Engine",
-    description: "Web based AI assistant with python backend and REST endpoints demonstrating LLM request validation andrate limiting.",
-    impact: "xxxxxxx",
+    id: "project-resumeIQ",
+    title: "ResumeIQ",
+    subtitle: "Evidence-Based Resume & Job Matching Engine",
+    description: "ResumeIQ is a production-grade, local-first intelligence platform that evaluates candidate resumes against job descriptions through a multi-stage deterministic pipeline. Instead of relying on a black-box LLM match percentage, ResumeIQ uses language models strictly for structured parsing and grounded reasoning, while employing deterministic code for canonical skill normalization, evidence verification, and weighted compatibility scoring.",
+    // impact: "Boosted retrieval context recall from 68% to 92.4% on complex multi-hop technical documentation queries.",
     category: "AI / ML",
-    technologies: ["PyTorch", "Qdrant", "Neo4j", "Hugging Face", "Go", "Next.js"],
-    imageUrl: "/src/assets/3.jpg",
-    liveUrl: "https://simple-chatbot-kkxd.onrender.com",
-    githubUrl: "https://github.com/aadinathr001/simple-chatbot",
-    metrics: [
-    
-    ]
+    technologies: ["Python","RAG","LLM","React.js","TypeScript","Node.js"],
+    imageUrl: "/src/assets/images/project_rag_engine_1791209236235.jpg",
+    // liveUrl: "https://hypervector-rag.vercel.app",
+    githubUrl: "https://github.com/aadinath-r/hypervector-rag-core",
+    // metrics: [
+    //   { label: "Context Recall", value: "92.4%" },
+    //   { label: "P99 Query Time", value: "14ms" }
+    // ]
   },
   {
-    id: "project-diffusion-canvas",
-    title: "Weather Web App",
-    subtitle: "",
-    description: "A simple weather app to demonstrate Flask backend inegrated to a weather API",
-    impact: "xxxxxxx",
-    category: "Computer Vision",
-    technologies: ["TypeScript", "WebGPU", "PyTorch", "Diffusers", "Tailwind CSS", "Vite"],
-    imageUrl: "/src/assets/3.jpg",
-    liveUrl: "https://weather-app-gtvc.onrender.com",
-    githubUrl: "https://github.com/aadinathr001/weather-app",
-    metrics: [
-      
-    ]
+    id: "project-paperLens",
+    title: "PaperLens",
+    subtitle: "Session-based RAG assistant",
+    description: "Upload PDF/TXT documents, ask questions, and get grounded answers with source citations using a custom HTML/CSS/JS frontend powered by a FastAPI backend.",
+    // impact: "Over 8,000 community research stars and deployed as a teaching sandbox in academic machine learning labs.",
+    category: "AI / ML",
+    technologies: ["Python", "PostgreSQL", "SQLAlchemy 2", "FastAPI", "Jinja@", "Docker","Argon2","RAG","LLM"],
+    imageUrl: "/src/assets/images/project_featured_neural_1791209209904.jpg",
+    // liveUrl: "https://latentflow-studio.vercel.app",
+    githubUrl: "https://github.com/aadinathr001/paperlens",
+    // metrics: [
+    //   { label: "WebGPU FPS", value: "60 FPS" },
+    //   { label: "GitHub Stars", value: "8.2k" }
+    // ]
   },
-  // {
-  //   id: "project-cloud-mlops",
-  //   title: "Synapse MLOps Platform",
-  //   subtitle: "Zero-Downtime Model Deployment & Drift Sentinel",
-  //   description: "Production observability pipeline tracking statistical concept drift, automated canary rollouts, and shadow inferencing for deep learning models at scale.",
-  //   impact: "xxxxxxx",
-  //   category: "Full-Stack",
-  //   technologies: ["Kubernetes", "Prometheus", "Kafka", "Python", "React", "PostgreSQL"],
-  //   imageUrl: "/src/assets/3.jpg",
-  //   liveUrl: "https://synapse-mlops.vercel.app",
-  //   githubUrl: "https://github.com/aadinath-r/synapse-mlops",
-  //   metrics: [
-  //     { label: "MTTD Reduction", value: "99%" },
-  //     { label: "Cluster Uptime", value: "99.99%" }
-  //   ]
-  // }
+  {
+    id: "project-healthPing",
+    title: "HealthPing",
+    subtitle: "API Health Monitor",
+    description: "A real-time API uptime, response latency, and availability monitoring dashboard",
+    // impact: "Eliminated silent production model degradation, cutting mean-time-to-detection from 4 days to 8 minutes.",
+    category: "Full-Stack",
+    technologies: ["TypeScript", "React", "Node.js","Express","Tailwind CSS","Vite"],
+    imageUrl: "/src/assets/images/project_agent_flow_1791209224739.jpg",
+    // liveUrl: "https://synapse-mlops.vercel.app",
+    githubUrl: "https://github.com/aadinathr001/healthping",
+    // metrics: [
+    //   { label: "MTTD Reduction", value: "99%" },
+    //   { label: "Cluster Uptime", value: "99.99%" }
+    // ]
+  }
 ];
 
 export interface ExperienceItemData {
@@ -137,39 +140,50 @@ export interface ExperienceItemData {
   company: string;
   location: string;
   period: string;
-  description?: string;
+  description: string;
   technologies: string[];
   highlights: string[];
 }
 
 export const EXPERIENCE_DATA: ExperienceItemData[] = [
   {
-    role: "Front-end Intern",
-    company: "DataPMI Technologies LLP",
-    location: "Infopark, Kochi, India (On-site)",
-    period: "01-06-2025 — 31-06-2025",
-    // description: "Leading the core inference optimization and vision-language foundation model deployment team for enterprise edge applications.",
-    technologies: ["Node.js", "HTML","JavaScript", "Python", "FastAPI", "Git", "GitHub","React","Tailwind CSS"],
+    role: "Senior AI/ML Research Engineer",
+    company: "NeuralPulse Labs",
+    location: "Bengaluru, India (Hybrid)",
+    period: "2023 — Present",
+    description: "Leading the core inference optimization and vision-language foundation model deployment team for enterprise edge applications.",
+    technologies: ["PyTorch", "TensorRT", "CUDA C++", "Triton Server", "Python", "FastAPI", "Ray"],
     highlights: [
-      "Collaborated with a cross-functional teams on Prolex AI, contributing to feature implementation and iterative product releases.",
-      "Integrated front-end components with backend APIs using FastAPI, supporting end-to-end feature delivery.",
-      "Developed responsive front-end components using HTML, CSS, and JavaScript, translating design requirements into user-facing interfaces.",
-      "Used Git and GitHub for version control, branch-based development, and collaborative code workflows."
+      "Architected speculative decoding pipeline for multimodal models, reducing median latency by 43% on edge GPUs.",
+      "Engineered automated model quantization (FP8/INT4) workflows with minimal perplexity degradation (<0.4%).",
+      "Mentored a team of 6 engineers across distributed training infrastructure and model evaluation benchmarks."
     ]
   },
   {
-    role: "Software Development Intern",
-    company: "Zyncrypt Technologies ",
-    location: "Kochi, India",
-    period: "02-07-2024 — 16-07-2024",
-    // description: "Built end-to-end predictive telemetry pipelines, autonomous agent decision graphs, and interactive client-facing dashboards.",
-    technologies: ["C", "Linux", "Networking", "PowerShell", "Git", "GitHub"],
+    role: "Machine Learning & Full-Stack Engineer",
+    company: "Kinetix Technologies",
+    location: "Bengaluru, India",
+    period: "2022 — 2023",
+    description: "Built end-to-end predictive telemetry pipelines, autonomous agent decision graphs, and interactive client-facing dashboards.",
+    technologies: ["Python", "TensorFlow", "React", "Node.js", "Docker", "PostgreSQL", "Kafka"],
     highlights: [
-      " Worked with Linux environments and networking fundamentals while supporting day-to-day software development tasks.",
-      "Participated in task coordination and project workflows, gaining practical experience with collaborative software development practices."
+      "Deployed streaming anomaly detection system handling 450,000 events/sec with sub-second alerting.",
+      "Designed and delivered the core analytics web portal used daily by 140+ enterprise operations teams.",
+      "Reduced cloud computing costs by 34% through proactive GPU instance scheduling and auto-scaling pods."
     ]
   },
-  
+  {
+    role: "AI Software Engineering Intern",
+    company: "Apex Computational Systems",
+    location: "Hyderabad, India",
+    period: "2021 — 2022",
+    description: "Researched graph neural networks (GNNs) for recommendation systems and developed microservices in Python and TypeScript.",
+    technologies: ["Python", "PyTorch Geometric", "FastAPI", "TypeScript", "Redis"],
+    highlights: [
+      "Implemented heterogeneous graph convolutions that improved cold-start recommendation accuracy by 18%.",
+      "Co-authored internal technical documentation and open-source benchmark suites for vector search."
+    ]
+  }
 ];
 
 export interface EducationItemData {
@@ -181,35 +195,38 @@ export interface EducationItemData {
   grade?: string;
   description: string;
   skills: string[];
-  highlights?: string[];
+  highlights: string[];
 }
 
 export const EDUCATION_DATA: EducationItemData[] = [
   {
-    degree: "B.Tech in Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
-    institution: "St.Thomas College of Engineering & Technology (STCET)",
+    degree: "B.Tech in Computer Science and Engineering",
+    institution: "National Institute of Technology (NIT)",
     location: "Kerala, India",
-    period: "2022-2026",
-    field: "Artificial Intelligence & Machine Learning",
-    grade: "7.89 / 10 CGPA",
+    period: "2018 — 2022",
+    field: "Computer Science & Artificial Intelligence",
+    grade: "8.9 / 10 CGPA",
     description: "Comprehensive curriculum spanning deep learning, distributed algorithms, data structures, and computer vision systems.",
     skills: ["Data Structures & Algorithms", "Deep Learning", "Operating Systems", "Distributed Computing", "Linear Algebra", "Database Management"],
     highlights: [
-      "NSS KTU CARE Unit 553 Coordinator, organizing community outreach and technical workshops for students.",
-      "Class Representative for the AI/ML department, liaising between faculty and students to enhance academic experiences.",
+      "Graduated First Class with Distinction; recipient of Academic Merit Scholarship.",
+      "Published undergraduate thesis on 'Adaptive Attention Mechanisms for Real-time Video Object Segmentation'.",
+      "Led the University Machine Learning & Algorithmic Society, mentoring over 300 junior students."
     ]
   },
   {
     degree: "Higher Secondary Certificate (HSC) in Science",
-    institution: "St.Mary's Higher Secondary School,Thiruvalla (CBSE)",
+    institution: "Kendriya Vidyalaya",
     location: "Kerala, India",
-    period: "2022",
+    period: "2016 — 2018",
     field: "Physics, Chemistry, Mathematics, Computer Science",
-    grade: "72%",
+    grade: "95.6%",
     description: "Foundational studies in higher mathematics, analytical physics, and early algorithmic programming in C++ and Python.",
     skills: ["Calculus", "Probability & Statistics", "Analytical Mechanics", "C++", "Python Fundamentals"],
-    // highlights: [
-    //   ]
+    highlights: [
+      "Ranked in top 1% nationally in national competitive science talent examination.",
+      "Won 1st prize at State Level Science Olympiad for algorithmic solar path tracking simulation."
+    ]
   }
 ];
 

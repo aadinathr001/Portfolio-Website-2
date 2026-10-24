@@ -41,7 +41,7 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    const targetModel = process.env.GROQ_MODEL;
+    const targetModel = process.env.GROQ_MODEL || "gptoss:20b";
     const formattedHistory = Array.isArray(history)
       ? history.slice(-6).map((h: { role: string; content: string }) => ({
           role: h.role === "user" ? "user" : "assistant",

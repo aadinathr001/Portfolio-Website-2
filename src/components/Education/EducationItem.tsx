@@ -1,5 +1,5 @@
 import React from "react";
-import { ChevronDown, MapPin, Calendar, GraduationCap, Award, BookCheck } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { EducationItemData } from "../../data/portfolioData";
 
 interface EducationItemProps {
@@ -12,142 +12,148 @@ interface EducationItemProps {
 
 export const EducationItem: React.FC<EducationItemProps> = ({
   education,
+  index,
   isOpen,
   onToggle,
   isLast,
 }) => {
-  return (
-    <div className="relative pl-8 sm:pl-10">
-      {/* Vertical Timeline Line */}
-      {!isLast && (
-        <div
-          className="absolute left-[13px] sm:left-[17px] top-6 bottom-0 w-[2px] bg-gradient-to-b from-cyan-400/40 via-white/10 to-transparent"
-          aria-hidden="true"
-        />
-      )}
+  const isFirst = index === 0;
+  const periodParts = education.period.split("—");
+  const startYear = periodParts[0]?.trim() || education.period;
+  const endYear = periodParts[1]?.trim() || "";
 
-      {/* Node Dot */}
-      <div
-        className={`absolute left-0 top-1.5 w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border transition-all duration-300 ${
-          isOpen
-            ? "bg-cyan-500/20 border-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.5)]"
-            : "bg-slate-900 border-white/20"
-        }`}
-        aria-hidden="true"
-      >
-        <span
-          className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-colors ${
-            isOpen ? "bg-cyan-400" : "bg-slate-500"
-          }`}
-        />
+  return (
+    <div className="relative grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 pb-12 last:pb-4 group">
+      {/* Column 1 & 2: Timeline Guide + Years */}
+      <div className="md:col-span-3 flex items-start gap-4 sm:gap-5 relative">
+        {/* Node & High-Contrast Continuous Vertical Spine */}
+        <div className="relative flex flex-col items-center shrink-0 w-5 self-stretch">
+          {!isLast && (
+            <div
+              className="w-[2px] bg-[#121212] absolute top-4 bottom-0 md:bottom-[-3.75rem] left-[9px] z-0"
+              aria-hidden="true"
+            />
+          )}
+
+          <div
+            className={`relative z-10 w-4 h-4 rounded-full mt-1 flex items-center justify-center transition-all ${
+              isFirst
+                ? "bg-[#c26d52] ring-4 ring-[#fbfbf9] shadow-sm"
+                : "bg-white border-2 border-[#121212] ring-4 ring-[#fbfbf9] shadow-sm"
+            }`}
+          >
+            {isFirst ? (
+              <span className="w-1.5 h-1.5 rounded-full bg-white" />
+            ) : (
+              <span className="w-1.5 h-1.5 rounded-full bg-[#121212]" />
+            )}
+          </div>
+        </div>
+
+        <div className="text-[12px] font-mono tracking-wider text-[#4a4a44] uppercase leading-tight pt-1">
+          <div className="font-semibold text-[#121212]">{startYear}</div>
+          {endYear && (
+            <div className="text-[#787870] font-normal">— {endYear}</div>
+          )}
+        </div>
       </div>
 
-      {/* Card */}
-      <div
-        className={`mb-8 rounded-xl border transition-all duration-300 ${
-          isOpen
-            ? "bg-slate-900/70 border-cyan-400/30 shadow-xl"
-            : "bg-slate-900/30 border-white/[0.07] hover:border-white/15"
-        }`}
-      >
-        {/* Toggle Button */}
+      {/* Column 3: Degree Title, Institution, Expandable Details */}
+      <div className="md:col-span-8 flex flex-col">
+        {/* Clickable Header Area */}
+        <button
+          type="button"
+          onClick={onToggle}
+          className="text-left cursor-pointer group/title focus:outline-none select-text"
+          aria-expanded={isOpen}
+          aria-label={`${isOpen ? "Collapse" : "Expand"} ${education.degree} details`}
+        >
+          <h3 className="font-['Manrope'] font-bold text-2xl sm:text-[28px] text-[#121212] group-hover/title:text-[#c26d52] tracking-tight leading-snug mb-2 transition-colors">
+            {education.degree}
+          </h3>
+
+          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-[13px] text-[#555550] mb-2">
+            <span className="font-semibold text-[#121212]">
+              {education.institution}
+            </span>
+            <span className="text-[#b5b5ac]">·</span>
+            <span className="font-mono uppercase text-[11px] tracking-wider text-[#7a7a72]">
+              {education.location}
+            </span>
+            {education.grade && (
+              <>
+                <span className="text-[#b5b5ac]">·</span>
+                <span className="font-mono text-[11px] text-[#c26d52] font-semibold tracking-wider">
+                  {education.grade}
+                </span>
+              </>
+            )}
+          </div>
+        </button>
+
+        {/* Collapsible Content */}
+        {isOpen && (
+          <div className="pt-3 animate-fadeIn">
+            <p className="font-['Inter'] font-normal text-[15px] sm:text-[16px] text-[#3e3e3b] leading-[1.68] mb-5 max-w-2xl">
+              {education.description}
+            </p>
+
+            {/* Coursework Tags */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {education.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="border border-[#d6d6ce] bg-white/70 px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider text-[#484844] hover:border-[#121212] transition-colors"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            {/* Academic Highlights */}
+            {education.highlights && education.highlights.length > 0 && (
+              <div className="pt-5 border-t border-[#e6e6e1]">
+                <div className="text-[11px] font-mono uppercase tracking-widest text-[#72726c] mb-3 font-medium">
+                  ACADEMIC HONORS & SPECIALIZATIONS
+                </div>
+                <ul className="space-y-2.5">
+                  {education.highlights.map((highlight, hIdx) => (
+                    <li
+                      key={hIdx}
+                      className="flex items-start gap-2.5 text-sm text-[#444440] leading-relaxed"
+                    >
+                      <span className="text-[#c26d52] font-mono text-xs mt-0.5 select-none font-bold">
+                        —
+                      </span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Column 4: Toggle Button */}
+      <div className="md:col-span-1 flex justify-end items-start pt-1">
         <button
           type="button"
           onClick={onToggle}
           aria-expanded={isOpen}
-          className="w-full text-left p-5 sm:p-6 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-xl"
-        >
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-2">
-            <div>
-              <h3 className="text-xl sm:text-[24px] font-['Manrope'] font-bold text-white tracking-tight flex items-center gap-2 leading-snug">
-                <span>{education.degree}</span>
-              </h3>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono text-cyan-300/90 mt-1">
-                <span className="inline-flex items-center gap-1 text-white font-medium">
-                  <GraduationCap className="w-3.5 h-3.5 text-cyan-400" />
-                  {education.institution}
-                </span>
-                <span className="text-slate-600" aria-hidden="true">·</span>
-                <span className="inline-flex items-center gap-1 text-slate-400">
-                  <MapPin className="w-3 h-3" />
-                  {education.location}
-                </span>
-                {education.grade && (
-                  <>
-                    <span className="text-slate-600" aria-hidden="true">·</span>
-                    <span className="text-emerald-400 font-semibold">{education.grade}</span>
-                  </>
-                )}
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between md:justify-end gap-3">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-slate-300">
-                <Calendar className="w-3 h-3 text-cyan-400" />
-                {education.period}
-              </span>
-
-              <div
-                className={`w-7 h-7 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-400 transition-transform duration-300 ${
-                  isOpen ? "rotate-180 text-cyan-400 bg-cyan-500/10 border-cyan-400/30" : ""
-                }`}
-                aria-hidden="true"
-              >
-                <ChevronDown className="w-4 h-4" />
-              </div>
-            </div>
-          </div>
-
-          {/* Field / Major */}
-          <div className="text-xs text-slate-400 mb-2">
-            <span className="font-mono text-slate-500">Major / Specialization: </span>
-            <span className="text-slate-200">{education.field}</span>
-          </div>
-
-          {/* Short description: Body Inter 400 (16-18px) */}
-          <p className="font-['Inter'] font-normal text-[15px] sm:text-[16px] text-slate-300/90 mt-2 leading-relaxed">
-            {education.description}
-          </p>
-
-
-          {/* Relevant skills or coursework */}
-          <div className="flex flex-wrap gap-1.5 mt-4">
-            {education.skills.map((skill) => (
-              <span
-                key={skill}
-                className="px-2.5 py-0.5 text-[11px] font-mono rounded bg-white/[0.04] border border-white/[0.08] text-slate-300"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </button>
-
-        {/* Expandable Achievements / Details */}
-        {education.highlights && education.highlights.length > 0 && (
-        <div
-          className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
-            isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 pointer-events-none"
+          aria-label={isOpen ? "Collapse details" : "Expand details"}
+          className={`w-8 h-8 border transition-all flex items-center justify-center cursor-pointer ${
+            isOpen
+              ? "border-[#121212] bg-[#121212] text-white"
+              : "border-[#d6d6ce] hover:border-[#121212] bg-white text-[#121212] hover:bg-neutral-100/60"
           }`}
         >
-          <div className="overflow-hidden">
-            <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-white/[0.06]">
-              <div className="text-[11px] font-mono uppercase tracking-wider text-cyan-400/90 mb-3 flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Academic Honors, Leadership & Highlights</span>
-              </div>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
-                {education.highlights.map((highlight, hIdx) => (
-                  <li key={hIdx} className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0" />
-                    <span className="leading-relaxed">{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-        )}
+          {isOpen ? (
+            <Minus className="w-3.5 h-3.5 stroke-[2]" />
+          ) : (
+            <Plus className="w-3.5 h-3.5 stroke-[2]" />
+          )}
+        </button>
       </div>
     </div>
   );
