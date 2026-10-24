@@ -1,32 +1,22 @@
 import React from "react";
-import { ExperienceSummary } from "./ExperienceSummary";
 import { ExperienceTimeline } from "./ExperienceTimeline";
 
 export const Experience: React.FC = () => {
   return (
-    <section id="experience" className="py-24 relative">
-      <div className="max-w-5xl mx-auto px-5 sm:px-8">
-        {/* Section Header: H2 Manrope 700 (40-52px range) */}
-        <div className="mb-14 border-b border-white/[0.08] pb-6">
-          <div className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2 font-medium">
-            Career Trajectory & Industry Roles
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-['Manrope'] font-bold text-white tracking-tight leading-[1.15]">
+    <section id="experience" className="py-24 border-b border-[#e6e6e1] relative">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        {/* Section Header */}
+        <div className="mb-14 border-b border-[#e6e6e1] pb-6">
+          <h2 className="font-['Manrope'] font-bold text-3xl sm:text-5xl text-[#121212] tracking-tight">
             Work Experience.
           </h2>
         </div>
 
 
-
-        {/* Experience Summary Statistics */}
-        <ExperienceSummary
-          yearsExperience="4+ Years"
-          companiesCount={3}
-          projectsCount="25+"
-        />
-
-        {/* Interactive Vertical Timeline */}
-        <ExperienceTimeline />
+        {/* Clean Interactive Timeline matching reference screenshot */}
+        <div className="max-w-6xl mx-auto">
+          <ExperienceTimeline />
+        </div>
       </div>
     </section>
   );

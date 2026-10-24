@@ -3,11 +3,19 @@ import { EDUCATION_DATA } from "../../data/portfolioData";
 import { EducationItem } from "./EducationItem";
 
 export const EducationTimeline: React.FC = () => {
-  // First education item is open by default
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  // Allow independent collapse/expand for each education item (item 0 open by default)
+  const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0]));
 
   const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndices((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
   };
 
   return (
@@ -17,7 +25,7 @@ export const EducationTimeline: React.FC = () => {
           key={`${item.institution}-${index}`}
           education={item}
           index={index}
-          isOpen={openIndex === index}
+          isOpen={openIndices.has(index)}
           onToggle={() => handleToggle(index)}
           isLast={index === EDUCATION_DATA.length - 1}
         />

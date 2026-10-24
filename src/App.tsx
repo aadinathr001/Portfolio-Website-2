@@ -14,9 +14,9 @@ import { TechStack } from "./components/TechStack";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ResumeModal } from "./components/ResumeModal";
-import { InteractiveBackground } from "./components/InteractiveBackground";
 import { Chatbot } from "./components/Chatbot/Chatbot";
 import { KeyboardShortcuts } from "./components/KeyboardShortcuts";
+
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>("about");
@@ -57,15 +57,13 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#08090d] text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-200">
-      {/* Interactive Canvas Physics Background (Mouse distortion, glow & ripples) */}
-      <InteractiveBackground />
-
+    <div className="relative min-h-screen bg-architectural-grid text-[#121212] selection:bg-[#c26d52]/15 selection:text-[#121212]">
       {/* Dynamic Glassmorphism Fixed Navigation Bar */}
       <Navbar
         onOpenResume={() => setIsResumeOpen(true)}
         activeSection={activeSection}
       />
+
 
       {/* Main Portfolio Sections */}
       <main className="relative z-10">

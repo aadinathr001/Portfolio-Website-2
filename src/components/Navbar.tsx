@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, FileText, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { PORTFOLIO_CONFIG } from "../data/portfolioData";
 
 interface NavbarProps {
@@ -8,32 +8,35 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [timeStr, setTimeStr] = useState("");
 
+  // Live real-time clock for Bangalore / local time zone
   useEffect(() => {
-    const handleScroll = () => {
-      // If scrolled more than 40px, activate glassmorphism
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    const updateTime = () => {
+      const now = new Date();
+      // IST / Bangalore time format: BLR HH:MM
+      const formatted = now.toLocaleTimeString("en-GB", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      });
+      setTimeStr(`BLR ${formatted}`);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    updateTime();
+    const interval = setInterval(updateTime, 1000 * 30);
+    return () => clearInterval(interval);
   }, []);
 
   const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Experience", href: "#experience" },
-    { label: "Education", href: "#education" },
-    { label: "Certificates", href: "#certificates" },
-    { label: "Stack", href: "#stack" },
-    { label: "Contact", href: "#contact" }
+    { num: "01", label: "ABOUT", href: "#about" },
+    { num: "02", label: "PROJECTS", href: "#projects" },
+    { num: "03", label: "EXPERIENCE", href: "#experience" },
+    { num: "04", label: "EDUCATION", href: "#education" },
+    { num: "05", label: "STACK", href: "#stack" },
+    { num: "06", label: "CONTACT", href: "#contact" }
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -46,29 +49,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ease-out ${
-        isScrolled
-          ? "bg-[#08090d]/80 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4)] py-3.5"
-          : "bg-transparent border-b border-transparent py-5"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
-        {/* Zone 1: Brand Symbol */}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#fbfbf9]/92 backdrop-blur-md border-b border-[#e6e6e1] transition-all">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
+        {/* Left: Swiss Monogram & Year Badge */}
         <a
           href="#about"
-          className="group flex items-center gap-2 text-base font-semibold tracking-tight text-white transition-opacity hover:opacity-90"
+          className="group flex items-baseline gap-1 text-[#121212] hover:opacity-80 transition-opacity"
           aria-label="Home"
         >
-          <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.1] flex items-center justify-center group-hover:border-cyan-400/40 transition-colors">
-            <span className="font-mono text-xs font-bold text-cyan-400">&lt;/&gt;</span>
-          </div>
-          <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          <span className="font-['Manrope'] font-extrabold text-base tracking-tighter text-[#121212]">
+            AR
+          </span>
+          <span className="text-[10px] font-mono text-[#8c8c85] tracking-tight">
+            ©26
+          </span>
         </a>
 
-
-        {/* Zone 2: Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+        {/* Center: Swiss Editorial Navigation with Terracotta Numeric Indicators */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navItems.map((item) => {
             const sectionId = item.href.replace("#", "");
             const isActive = activeSection === sectionId;
@@ -78,18 +76,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`relative px-3.5 py-1.5 text-xs xl:text-sm font-medium transition-all duration-200 rounded-md ${
+                className={`group relative py-1 text-[11px] font-mono tracking-wider uppercase transition-colors flex items-center gap-1.5 ${
                   isActive
-                    ? "text-white font-semibold"
-                    : isScrolled
-                    ? "text-slate-400 hover:text-slate-100 hover:bg-white/[0.04]"
-                    : "text-slate-300/70 hover:text-white hover:bg-white/[0.03]"
+                    ? "text-[#121212] font-semibold"
+                    : "text-[#72726c] hover:text-[#121212]"
                 }`}
               >
+                {/* Terracotta index number */}
+                <span
+                  className={`text-[10px] font-mono transition-colors ${
+                    isActive ? "text-[#c26d52] font-bold" : "text-[#c26d52]/70 group-hover:text-[#c26d52]"
+                  }`}
+                >
+                  {item.num}
+                </span>
+
+                {/* Section title */}
                 <span>{item.label}</span>
+
+                {/* Understated hairline indicator */}
                 {isActive && (
                   <span
-                    className="absolute bottom-0 left-3 right-3 h-[2px] bg-cyan-400 rounded-full shadow-[0_0_8px_rgba(34,211,238,0.7)]"
+                    className="absolute -bottom-1.5 left-0 right-0 h-[1.5px] bg-[#121212]"
                     aria-hidden="true"
                   />
                 )}
@@ -98,39 +106,36 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
           })}
         </nav>
 
-
-
-        {/* Zone 3: Resume CTA & Mobile Toggle */}
-        <div className="flex items-center gap-3">
+        {/* Right: Architectural Boxed Resume Button & Monospace Clock */}
+        <div className="flex items-center gap-4 sm:gap-6">
           <button
             onClick={onOpenResume}
-            className={`hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-medium rounded-lg transition-all duration-200 border ${
-              isScrolled
-                ? "bg-white/[0.06] hover:bg-white/[0.12] text-slate-100 border-white/[0.12] shadow-sm hover:border-cyan-400/40"
-                : "bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/30 backdrop-blur-sm"
-            }`}
+            className="px-3.5 py-1 text-[11px] font-mono tracking-wider uppercase text-[#121212] border border-[#d6d6ce] hover:border-[#121212] hover:bg-[#121212]/[0.03] transition-all cursor-pointer"
           >
-            <FileText className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Resume</span>
-            <ArrowUpRight className="w-3 h-3 opacity-60" />
+            RESUME
           </button>
+
+          {/* Timezone / Live Clock */}
+          <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-[#8a8a82]">
+            <span>{timeStr || "BLR 15:47"}</span>
+          </div>
 
           {/* Mobile hamburger button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-300 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
+            className="lg:hidden p-1.5 text-[#121212] hover:bg-neutral-100 transition-colors"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5 text-[#121212]" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[61px] bg-[#08090d]/95 backdrop-blur-xl border-b border-white/[0.1] px-6 py-6 shadow-2xl transition-all">
-          <div className="flex flex-col space-y-3">
+        <div className="lg:hidden fixed inset-x-0 top-16 bg-[#fbfbf9] border-b border-[#e6e6e1] px-6 py-6 shadow-lg">
+          <div className="flex flex-col space-y-4">
             {navItems.map((item) => {
               const sectionId = item.href.replace("#", "");
               const isActive = activeSection === sectionId;
@@ -139,25 +144,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, activeSection }) =
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`flex items-center justify-between py-2 text-sm font-medium transition-colors ${
-                    isActive ? "text-cyan-400 font-semibold" : "text-slate-300 hover:text-white"
+                  className={`flex items-center gap-2.5 text-xs font-mono tracking-wider py-1.5 border-b border-[#f0f0eb] ${
+                    isActive ? "text-[#121212] font-bold" : "text-[#70706a]"
                   }`}
                 >
+                  <span className="text-[#c26d52] font-mono text-[10px]">{item.num}</span>
                   <span>{item.label}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />}
                 </a>
               );
             })}
-            <div className="pt-3 border-t border-white/[0.08]">
+
+            <div className="pt-2 flex items-center justify-between text-xs font-mono text-[#888880]">
+              <span>TIME: {timeStr}</span>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenResume();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-semibold rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 transition-colors"
+                className="px-3 py-1 text-[11px] font-mono uppercase border border-[#121212] text-[#121212]"
               >
-                <FileText className="w-4 h-4" />
-                <span>View Full Resume</span>
+                OPEN RESUME
               </button>
             </div>
           </div>

@@ -183,96 +183,89 @@ export const Chatbot: React.FC<ChatbotProps> = ({
 
   return (
     <>
-      {/* Floating Trigger Button (Bottom-Right, Compact & Non-Obstructive) */}
-      <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40">
+      {/* Floating Trigger Button (Bottom-Right, Perfectly Aligned with Bottom-Left Shortcuts Dock) */}
+      <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40">
         {!isOpen && (
           <button
             onClick={() => setIsOpen(true)}
-            aria-label="Open AI Portfolio Chatbot"
-            className="group relative flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-slate-900/90 hover:bg-slate-900 border border-cyan-400/40 hover:border-cyan-400 shadow-[0_8px_25px_rgba(0,0,0,0.5)] backdrop-blur-md text-white transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+            aria-label="Open AI Portfolio Assistant"
+            className="group flex items-center gap-2.5 px-3.5 py-2 border border-[#d6d6ce] hover:border-[#121212] bg-[#fbfbf9]/95 backdrop-blur-md shadow-sm text-[11px] font-mono tracking-wider uppercase text-[#121212] transition-all cursor-pointer"
           >
-            {/* Ambient pulse dot */}
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
-            </span>
-
-            <MessageSquare className="w-4 h-4 text-cyan-400" />
-            <span className="text-xs font-mono font-medium tracking-tight text-slate-200 group-hover:text-white">
-              Ask AI
-            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#c26d52]" />
+            <span>AI ASSISTANT</span>
+            <kbd className="px-1.5 py-0.5 border border-[#d6d6ce] bg-white text-[10px] text-[#121212] font-mono">
+              C
+            </kbd>
           </button>
         )}
       </div>
 
-      {/* Floating Chat Modal Panel */}
+      {/* Floating Chat Modal Panel (Swiss Architectural Design) */}
       {isOpen && (
         <div
           role="dialog"
-          aria-label="AI Portfolio Chatbot"
+          aria-label="AI Portfolio Assistant"
           className={`fixed z-50 transition-all duration-300 ${
             isExpanded
               ? "inset-4 sm:inset-10"
-              : "bottom-4 right-4 sm:bottom-6 sm:right-6 w-[calc(100vw-2rem)] sm:w-[420px] h-[580px] max-h-[85vh]"
-          } flex flex-col rounded-2xl bg-[#090a0f]/95 backdrop-blur-xl border border-white/[0.12] shadow-2xl overflow-hidden`}
+              : "bottom-6 right-6 sm:bottom-8 sm:right-8 w-[calc(100vw-3rem)] sm:w-[420px] h-[580px] max-h-[85vh]"
+          } flex flex-col bg-white border border-[#d0d0c8] shadow-2xl overflow-hidden text-[#121212]`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3.5 border-b border-white/[0.08] bg-slate-900/60 shrink-0">
+          <div className="flex items-center justify-between px-4 py-3.5 border-b border-[#e6e6e1] bg-[#fbfbf9] shrink-0">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-400/30 flex items-center justify-center text-cyan-300">
-                <MessageSquare className="w-4 h-4" />
+              <div className="w-7 h-7 border border-[#d6d6ce] bg-white flex items-center justify-center text-[#121212]">
+                <MessageSquare className="w-3.5 h-3.5" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="text-xs font-['Manrope'] font-bold text-white tracking-tight">
-                    Portfolio Assistant
+                  <h3 className="text-xs font-['Manrope'] font-bold text-[#121212] tracking-tight">
+                    Dossier Assistant
                   </h3>
-
-                  <span className="px-1.5 py-0.2 text-[9px] font-mono rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
-                    Live
+                  <span className="px-1.5 py-0.2 text-[9px] font-mono uppercase bg-[#c26d52]/10 text-[#c26d52] font-semibold border border-[#c26d52]/30">
+                    Live RAG
                   </span>
                 </div>
-                <div className="text-[10px] font-mono text-slate-400">
-                  In-Memory RAG Engine
+                <div className="text-[10px] font-mono text-[#808078]">
+                  In-Memory Grounded Knowledge
                 </div>
               </div>
             </div>
 
-
-            <div className="flex items-center gap-1 text-slate-400">
+            <div className="flex items-center gap-1.5 text-[#70706a]">
               <button
                 onClick={handleClearSession}
                 title="Reset session history"
-                className="p-1.5 hover:text-white hover:bg-white/[0.06] rounded-lg transition-colors"
+                className="p-1.5 border border-[#e6e6e1] hover:border-[#121212] hover:text-[#121212] transition-colors cursor-pointer"
                 aria-label="Clear chat session"
               >
-                <RotateCcw className="w-3.5 h-3.5" />
+                <RotateCcw className="w-3 h-3" />
               </button>
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 title={isExpanded ? "Collapse" : "Expand"}
-                className="hidden sm:inline-flex p-1.5 hover:text-white hover:bg-white/[0.06] rounded-lg transition-colors"
+                className="hidden sm:inline-flex p-1.5 border border-[#e6e6e1] hover:border-[#121212] hover:text-[#121212] transition-colors cursor-pointer"
                 aria-label="Toggle size"
               >
                 {isExpanded ? (
-                  <Minimize2 className="w-3.5 h-3.5" />
+                  <Minimize2 className="w-3 h-3" />
                 ) : (
-                  <Maximize2 className="w-3.5 h-3.5" />
+                  <Maximize2 className="w-3 h-3" />
                 )}
               </button>
               <button
                 onClick={() => setIsOpen(false)}
                 title="Close chat"
-                className="p-1.5 hover:text-white hover:bg-white/[0.06] rounded-lg transition-colors"
+                className="p-1.5 border border-[#e6e6e1] hover:border-[#121212] hover:text-[#121212] transition-colors cursor-pointer"
                 aria-label="Close chat"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3 h-3" />
               </button>
             </div>
           </div>
 
           {/* Messages Container */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 text-xs font-sans">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 text-xs font-sans bg-white">
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -280,17 +273,11 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                   msg.role === "user" ? "justify-end" : "justify-start"
                 }`}
               >
-                {msg.role === "assistant" && (
-                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center shrink-0 mt-0.5 text-cyan-300">
-                    <Bot className="w-3.5 h-3.5" />
-                  </div>
-                )}
-
                 <div
-                  className={`max-w-[85%] rounded-xl px-3.5 py-2.5 leading-relaxed shadow-sm ${
+                  className={`max-w-[85%] px-3.5 py-2.5 leading-relaxed ${
                     msg.role === "user"
-                      ? "bg-cyan-600/30 text-white border border-cyan-400/30"
-                      : "bg-slate-900/80 text-slate-200 border border-white/[0.07]"
+                      ? "bg-[#121212] text-white"
+                      : "bg-[#fbfbf9] text-[#222220] border border-[#e6e6e1]"
                   }`}
                 >
                   <p className="whitespace-pre-line leading-relaxed text-[12px] sm:text-[13px]">
@@ -299,16 +286,16 @@ export const Chatbot: React.FC<ChatbotProps> = ({
 
                   {/* RAG Sources Citations */}
                   {msg.sources && msg.sources.length > 0 && (
-                    <div className="mt-2.5 pt-2 border-t border-white/[0.06]">
-                      <div className="flex items-center gap-1 text-[10px] font-mono text-cyan-400/80 mb-1">
-                        <BookOpen className="w-3 h-3" />
-                        <span>RETRIEVED PORTFOLIO CONTEXT:</span>
+                    <div className="mt-2.5 pt-2 border-t border-[#e6e6e1]">
+                      <div className="flex items-center gap-1 text-[9.5px] font-mono uppercase text-[#72726c] mb-1">
+                        <BookOpen className="w-3 h-3 text-[#c26d52]" />
+                        <span>RETRIEVED CONTEXT:</span>
                       </div>
                       <div className="flex flex-wrap gap-1">
                         {msg.sources.map((s, idx) => (
                           <span
                             key={idx}
-                            className="px-1.5 py-0.5 rounded bg-white/[0.04] text-[9.5px] font-mono text-slate-400 border border-white/[0.06]"
+                            className="px-1.5 py-0.5 border border-[#dcdcd4] bg-white text-[9px] font-mono text-[#555550]"
                           >
                             {s.title}
                           </span>
@@ -317,32 +304,23 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                     </div>
                   )}
 
-                  <div className="mt-1 text-[9px] font-mono text-slate-500 text-right">
+                  <div className={`mt-1 text-[9px] font-mono ${msg.role === "user" ? "text-neutral-400" : "text-[#92928a]"} text-right`}>
                     {msg.timestamp}
                   </div>
                 </div>
-
-                {msg.role === "user" && (
-                  <div className="w-6 h-6 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-300">
-                    <User className="w-3.5 h-3.5" />
-                  </div>
-                )}
               </div>
             ))}
 
             {isLoading && (
               <div className="flex gap-2.5 justify-start">
-                <div className="w-6 h-6 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center shrink-0 mt-0.5 text-cyan-300">
-                  <Bot className="w-3.5 h-3.5" />
-                </div>
-                <div className="p-3 rounded-xl bg-slate-900/80 border border-white/[0.07] flex items-center gap-2">
-                  <span className="text-[11px] font-mono text-slate-400">
-                    Retrieving knowledge & reasoning...
+                <div className="p-3 bg-[#fbfbf9] border border-[#e6e6e1] flex items-center gap-2">
+                  <span className="text-[11px] font-mono text-[#72726c]">
+                    Retrieving portfolio index & reasoning...
                   </span>
                   <div className="flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-bounce" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-bounce [animation-delay:0.2s]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-bounce [animation-delay:0.4s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#c26d52] animate-bounce" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#c26d52] animate-bounce [animation-delay:0.2s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#c26d52] animate-bounce [animation-delay:0.4s]" />
                   </div>
                 </div>
               </div>
@@ -351,12 +329,11 @@ export const Chatbot: React.FC<ChatbotProps> = ({
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Quick Query Suggestions (when few messages) */}
+          {/* Quick Query Suggestions */}
           {messages.length <= 2 && (
-            <div className="px-4 pb-2 shrink-0">
-              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1.5 flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-cyan-400" />
-                <span>Suggested Questions</span>
+            <div className="px-4 pb-2 shrink-0 bg-white border-t border-[#f0f0eb] pt-2">
+              <div className="text-[10px] font-mono text-[#82827a] uppercase tracking-wider mb-1.5">
+                SUGGESTED INQUIRIES
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {SUGGESTED_QUERIES.map((q) => (
@@ -364,10 +341,9 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                     key={q}
                     onClick={() => handleSendMessage(q)}
                     disabled={isLoading}
-                    className="text-left px-2.5 py-1 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-[11px] text-slate-300 hover:text-white border border-white/[0.07] hover:border-cyan-400/30 transition-all flex items-center gap-1 cursor-pointer"
+                    className="text-left px-2.5 py-1 bg-[#fbfbf9] hover:bg-neutral-100 text-[11px] text-[#333330] border border-[#e0e0d8] hover:border-[#121212] transition-colors cursor-pointer"
                   >
                     <span>{q}</span>
-                    <ArrowRight className="w-2.5 h-2.5 text-cyan-400 opacity-60" />
                   </button>
                 ))}
               </div>
@@ -375,7 +351,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
           )}
 
           {/* Input Box */}
-          <div className="p-3 border-t border-white/[0.08] bg-slate-950/70 shrink-0">
+          <div className="p-3 border-t border-[#e6e6e1] bg-[#fbfbf9] shrink-0">
             <div className="relative flex items-center">
               <input
                 ref={inputRef}
@@ -383,22 +359,22 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask about AI models, projects, experience..."
+                placeholder="Ask about neural architectures, projects, stack..."
                 disabled={isLoading}
-                className="w-full pl-3.5 pr-10 py-2.5 rounded-xl bg-slate-900 border border-white/[0.1] focus:border-cyan-400/60 focus:outline-none text-xs text-white placeholder:text-slate-500 transition-colors font-sans"
+                className="w-full pl-3 pr-10 py-2 border border-[#d6d6ce] focus:border-[#121212] focus:outline-none text-xs text-[#121212] bg-white placeholder:text-[#999990] transition-colors font-mono"
               />
               <button
                 onClick={() => handleSendMessage()}
                 disabled={isLoading || !inputMessage.trim()}
-                className="absolute right-1.5 p-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 disabled:opacity-30 disabled:hover:bg-cyan-500 text-slate-950 transition-colors cursor-pointer"
+                className="absolute right-1 p-1.5 bg-[#121212] hover:bg-[#282826] disabled:opacity-30 text-white transition-colors cursor-pointer"
                 aria-label="Send message"
               >
                 <Send className="w-3.5 h-3.5" />
               </button>
             </div>
-            <div className="mt-1.5 flex items-center justify-between text-[9px] font-mono text-slate-500 px-1">
-              <span>Database-free in-memory RAG</span>
-              <span>Session stored</span>
+            <div className="mt-1.5 flex items-center justify-between text-[9px] font-mono text-[#8a8a82] px-0.5">
+              <span>ZERO DATABASE // IN-MEMORY RAG</span>
+              <span>GROQ GPTOSS-20B</span>
             </div>
           </div>
         </div>
@@ -406,3 +382,4 @@ export const Chatbot: React.FC<ChatbotProps> = ({
     </>
   );
 };
+

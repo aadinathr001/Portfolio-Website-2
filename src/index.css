@@ -4,28 +4,45 @@
   --font-display: 'Manrope', sans-serif;
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --color-terracotta: #c26d52;
+  --color-canvas: #fbfbf9;
+  --color-hairline: #e6e6e1;
+  --color-nearblack: #121212;
 }
 
 @layer base {
   html {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #fbfbf9;
+    color: #121212;
     scroll-behavior: smooth;
   }
 }
 
-/* Standardized Typography Classes according to Design Reference:
+/* Architectural Draft Paper Subtle Grid Background */
+.bg-architectural-grid {
+  background-color: #fbfbf9;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.032) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.032) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Swiss Typographic Hierarchy Classes:
    H1: Manrope 800 (64-80px)
    H2: Manrope 700 (40-52px)
    H3: Manrope 700 (24-32px)
    Body: Inter 400 (16-18px)
    Small: Inter 500 (13-14px)
+   Metadata: JetBrains Mono 500 (10-11px, uppercase)
 */
 .font-h1 {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: clamp(48px, 6vw, 76px);
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #121212;
 }
 
 .font-h2 {
@@ -34,6 +51,7 @@
   font-size: clamp(34px, 4.5vw, 48px);
   line-height: 1.15;
   letter-spacing: -0.02em;
+  color: #121212;
 }
 
 .font-h3 {
@@ -42,6 +60,7 @@
   font-size: clamp(22px, 2.5vw, 28px);
   line-height: 1.25;
   letter-spacing: -0.015em;
+  color: #121212;
 }
 
 .font-body {
@@ -49,6 +68,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.65;
+  color: #383836;
 }
 
 .font-body-lg {
@@ -56,6 +76,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1.65;
+  color: #383836;
 }
 
 .font-small {
@@ -63,41 +84,52 @@
   font-weight: 500;
   font-size: 13.5px;
   line-height: 1.5;
+  color: #666662;
 }
 
-
-/* Glassmorphism subtle borders and glow utilities */
-.glass-nav-scrolled {
-  background: rgba(8, 9, 13, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+.font-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #72726c;
 }
 
-.glass-card {
-  background: rgba(17, 19, 27, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+/* Hairline dividers & boxes */
+.hairline-border {
+  border: 1px solid #e6e6e1;
 }
 
-.glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.16);
+.hairline-t {
+  border-top: 1px solid #e6e6e1;
 }
 
-/* Custom subtle scrollbar */
+.hairline-b {
+  border-bottom: 1px solid #e6e6e1;
+}
+
+.hairline-l {
+  border-left: 1px solid #e6e6e1;
+}
+
+.hairline-r {
+  border-right: 1px solid #e6e6e1;
+}
+
+/* Subtle, architectural scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #08090d;
+  background: #fbfbf9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #252836;
-  border-radius: 9999px;
+  background: #d4d4cc;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b4259;
+  background: #b5b5ac;
 }
+
