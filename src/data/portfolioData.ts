@@ -22,7 +22,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
   NAME: "Aadinath R",
   ROLE: "AI/ML Engineer & Full-Stack Developer",
   SHORT_INTRO: "I engineer distributed neural architectures, autonomous agent workflows, and resilient full-stack systems. Passionate about turning complex multimodal research into simple, high-impact products.",
-  PROFILE_IMAGE: "./assets/images/hero.jpg",
+  PROFILE_IMAGE: "./assets/images/hero.webp",
   RESUME_LINK: "#resume",
   LOCATION: "Bengaluru, India",
   STATUS: "",
