@@ -22,7 +22,7 @@ export const PORTFOLIO_CONFIG: PortfolioConfig = {
   NAME: "Aadinath R",
   ROLE: "AI/ML Engineer & Full-Stack Developer",
   SHORT_INTRO: "I engineer distributed neural architectures, autonomous agent workflows, and resilient full-stack systems. Passionate about turning complex multimodal research into simple, high-impact products.",
-  PROFILE_IMAGE: "/public/assets/images/hero.jpg",
+  PROFILE_IMAGE: "./assets/images/hero.jpg",
   RESUME_LINK: "#resume",
   LOCATION: "Bengaluru, India",
   STATUS: "",
@@ -56,7 +56,7 @@ export const FEATURED_PROJECT: ProjectItem = {
   impact: "Achieved 4.2x throughput increase and 47% reduction in GPU VRAM consumption across 1.2M daily visual tokens.",
   category: "Computer Vision",
   technologies: ["PyTorch", "TensorRT", "CUDA", "FastAPI", "WebRTC", "React"],
-  imageUrl: "/public/assets/images/project_featured_neural_1791209209904.jpg",
+  imageUrl: "./assets/images/project_featured_neural_1791209209904.jpg",
   liveUrl: "https://omni-percept-demo.vercel.app",
   githubUrl: "https://github.com/aadinathr001/auditsum",
   isFeatured: true,
@@ -77,7 +77,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     // impact: "",
     category: "Agentic Systems",
     technologies: ["Python", "LangGraph", "FastAPI", "TypeScript", "Node.js", "React.js", "Tailwind CSS"],
-    imageUrl: "/src/assets/images/project_agent_flow_1791209224739.jpg",
+    imageUrl: "./assets/images/project_agent_flow_1791209224739.jpg",
     // liveUrl: "https://nexus-agent-mesh.vercel.app",
     githubUrl: "https://github.com/aadinathr001/framemind",
     // metrics: [
@@ -93,7 +93,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     // impact: "Boosted retrieval context recall from 68% to 92.4% on complex multi-hop technical documentation queries.",
     category: "AI / ML",
     technologies: ["Python","RAG","LLM","React.js","TypeScript","Node.js"],
-    imageUrl: "/src/assets/images/project_rag_engine_1791209236235.jpg",
+    imageUrl: "./assets/images/project_rag_engine_1791209236235.jpg",
     // liveUrl: "https://hypervector-rag.vercel.app",
     githubUrl: "https://github.com/aadinath-r/hypervector-rag-core",
     // metrics: [
@@ -109,7 +109,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     // impact: "Over 8,000 community research stars and deployed as a teaching sandbox in academic machine learning labs.",
     category: "AI / ML",
     technologies: ["Python", "PostgreSQL", "SQLAlchemy 2", "FastAPI", "Jinja@", "Docker","Argon2","RAG","LLM"],
-    imageUrl: "/src/assets/images/project_featured_neural_1791209209904.jpg",
+    imageUrl: "./assets/images/project_featured_neural_1791209209904.jpg",
     // liveUrl: "https://latentflow-studio.vercel.app",
     githubUrl: "https://github.com/aadinathr001/paperlens",
     // metrics: [
@@ -125,7 +125,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     // impact: "Eliminated silent production model degradation, cutting mean-time-to-detection from 4 days to 8 minutes.",
     category: "Full-Stack",
     technologies: ["TypeScript", "React", "Node.js","Express","Tailwind CSS","Vite"],
-    imageUrl: "/src/assets/images/project_agent_flow_1791209224739.jpg",
+    imageUrl: "./assets/images/project_agent_flow_1791209224739.jpg",
     // liveUrl: "https://synapse-mlops.vercel.app",
     githubUrl: "https://github.com/aadinathr001/healthping",
     // metrics: [
