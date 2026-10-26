@@ -43,10 +43,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             {/* Display Headline with Hi, I'm Aadinath */}
             <h1 className="font-['Manrope'] tracking-tighter text-[#121212] leading-[1.02] text-balance mb-6">
               <span className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#6e6e68] block mb-2 font-['Manrope']">
-                Hi, I'm
+                Hi, I'm 
               </span>
+              <br />
               <span className="text-5xl sm:text-7xl lg:text-[84px] font-extrabold block">
-                {NAME}.
+                {NAME}
               </span>
             </h1>
 
