@@ -151,7 +151,7 @@ export const EXPERIENCE_DATA: ExperienceItemData[] = [
     company: "DataPMI Technologies LLP",
     location: "Kochi, India (Onsite)",
     period: "June 2025",
-    description: "Work on a project with 4 intern team",
+    description: "Joined a front-end intern team and worked on project under senior mentorship",
     technologies: ["Python", "React.js", "HTML", "CSS","FastAPI"],
     highlights: [
       "Assisted in collaborative product development for Prolex AI.",

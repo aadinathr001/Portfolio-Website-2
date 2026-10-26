@@ -26,12 +26,12 @@ export const Contact: React.FC = () => {
             <div className="text-[11px] font-mono uppercase tracking-widest text-[#72726c] mb-2 font-medium">
               DIRECT INBOX
             </div>
-            <h3 className="font-['Manrope'] font-bold text-2xl text-[#121212] mb-3 leading-snug">
-              Have an ambitious idea?
-            </h3>
-            <p className="font-['Inter'] font-normal text-sm sm:text-base text-[#464642] leading-relaxed mb-6">
+            {/* <h3 className="font-['Manrope'] font-bold text-2xl text-[#121212] mb-3 leading-snug">
+              CONTACT ME 
+            </h3> */}
+            {/* <p className="font-['Inter'] font-normal text-sm sm:text-base text-[#464642] leading-relaxed mb-6">
               Whether you have questions about vision model optimization, agent frameworks, or potential engineering roles, I respond promptly to concise inquiries.
-            </p>
+            </p> */}
 
             {/* Copy Email Box */}
             <div className="flex items-center justify-between p-3.5 bg-[#fbfbf9] border border-[#e6e6e1] mb-6">
@@ -56,9 +56,9 @@ export const Contact: React.FC = () => {
 
             {/* Social Profiles */}
             <div className="pt-5 border-t border-[#e6e6e1]">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-[#82827a] mb-3">
+              {/* <div className="text-[10px] font-mono uppercase tracking-wider text-[#82827a] mb-3">
                 DIGITAL COORDINATES
-              </div>
+              </div> */}
               <div className="flex flex-wrap gap-2">
                 <a
                   href={PORTFOLIO_CONFIG.GITHUB}
