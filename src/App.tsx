@@ -14,7 +14,7 @@ import { TechStack } from "./components/TechStack";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ResumeModal } from "./components/ResumeModal";
-import { Chatbot } from "./components/Chatbot/Chatbot";
+// import { Chatbot } from "./components/Chatbot/Chatbot";
 import { KeyboardShortcuts } from "./components/KeyboardShortcuts";
 import { CaseStudyPage } from "./components/CaseStudy/CaseStudyPage";
 import { usePathname, matchProjectRoute, restoreHomeScroll } from "./utils/router";
@@ -104,12 +104,12 @@ export default function App() {
         </>
       )}
 
-      {isChatbotEnabled && (
+      {/* {isChatbotEnabled && (
         <Chatbot
           isOpen={isChatbotOpen}
           onOpenChange={setIsChatbotOpen}
         />
-      )}
+      )} */}
 
       <KeyboardShortcuts
         onOpenChatbot={() => {
