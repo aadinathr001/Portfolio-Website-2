@@ -195,7 +195,7 @@ export const CaseStudyPage: React.FC<{ slug: string }> = ({ slug }) => {
           <div className="relative border border-[#e6e6e1] bg-white p-3 mb-12 shadow-sm">
             <div className="aspect-[16/8] overflow-hidden bg-[#f0f0eb] border border-[#e6e6e1]">
               <img
-                src="./assets/images/auditsum_thumb_2.webp"
+                src="./assets/images/auditsum_thumbnail.webp"
                 alt={project.title}
                 className="w-full h-full object-cover grayscale-[0.2]"
                 referrerPolicy="no-referrer"
