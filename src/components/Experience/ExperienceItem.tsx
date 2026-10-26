@@ -18,11 +18,12 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
   isLast,
 }) => {
   const isCurrent = index === 0;
+  const showCurrentIndicators = false; // ENABLE /DISABLE THE FEATURE
 
   // Split period into year and range if applicable
   const periodParts = experience.period.split("—");
   const startYear = periodParts[0]?.trim() || experience.period;
-  const endYear = periodParts[1]?.trim() || (isCurrent ? "PRESENT" : "");
+  const endYear = periodParts[1]?.trim() || (isCurrent && showCurrentIndicators ? "PRESENT" : "");
 
   return (
     <div className="relative grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 pb-12 last:pb-4 group">
@@ -56,7 +57,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
         {/* Date Monospace Stack */}
         <div className="text-[12px] font-mono tracking-wider text-[#4a4a44] uppercase leading-tight pt-1">
           <div className="font-semibold text-[#121212]">{startYear}</div>
-          {endYear && <div className="text-[#787870] font-normal">— {endYear}</div>}
+          {showCurrentIndicators && endYear && <div className="text-[#787870] font-normal">— {endYear}</div>}
         </div>
       </div>
 
@@ -82,7 +83,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
             <span className="font-mono uppercase text-[11px] tracking-wider text-[#7a7a72]">
               {experience.location}
             </span>
-            {isCurrent && (
+            {showCurrentIndicators && isCurrent && (
               <>
                 <span className="text-[#b5b5ac]">·</span>
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#c26d52] font-semibold uppercase tracking-wider">
@@ -104,7 +105,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
 
             {/* Crisp Hairline Boxed Tech Tags */}
             <div className="flex flex-wrap gap-2 mb-6">
-              {experience.technologies.map((tech) => (
+              {experience.technologies?.map((tech) => (
                 <span
                   key={tech}
                   className="border border-[#d6d6ce] bg-white/70 px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider text-[#484844] hover:border-[#121212] transition-colors"
@@ -118,7 +119,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
             {experience.highlights && experience.highlights.length > 0 && (
               <div className="pt-5 border-t border-[#e6e6e1]">
                 <div className="text-[11px] font-mono uppercase tracking-widest text-[#72726c] mb-3 font-medium">
-                  ARCHITECTURAL DELIVERABLES & HIGHLIGHTS
+                  HIGHLIGHTS
                 </div>
                 <ul className="space-y-2.5">
                   {experience.highlights.map((highlight, hIdx) => (

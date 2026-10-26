@@ -100,7 +100,7 @@ export const EducationItem: React.FC<EducationItemProps> = ({
 
             {/* Coursework Tags */}
             <div className="flex flex-wrap gap-2 mb-6">
-              {education.skills.map((skill) => (
+              {education.skills?.map((skill) => (
                 <span
                   key={skill}
                   className="border border-[#d6d6ce] bg-white/70 px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider text-[#484844] hover:border-[#121212] transition-colors"
@@ -114,7 +114,7 @@ export const EducationItem: React.FC<EducationItemProps> = ({
             {education.highlights && education.highlights.length > 0 && (
               <div className="pt-5 border-t border-[#e6e6e1]">
                 <div className="text-[11px] font-mono uppercase tracking-widest text-[#72726c] mb-3 font-medium">
-                  ACADEMIC HONORS & SPECIALIZATIONS
+                  ACHIEVEMENTS
                 </div>
                 <ul className="space-y-2.5">
                   {education.highlights.map((highlight, hIdx) => (

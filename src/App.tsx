@@ -21,6 +21,7 @@ import { usePathname, matchProjectRoute, restoreHomeScroll } from "./utils/route
 import { InteractiveBackground } from "./components/InteractiveBackground";
 
 export default function App() {
+  const isChatbotEnabled = false; //true if chatbot needed,false chatbot disabled
   const [activeSection, setActiveSection] = useState<string>("about");
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
@@ -103,13 +104,17 @@ export default function App() {
         </>
       )}
 
-      <Chatbot
-        isOpen={isChatbotOpen}
-        onOpenChange={setIsChatbotOpen}
-      />
+      {isChatbotEnabled && (
+        <Chatbot
+          isOpen={isChatbotOpen}
+          onOpenChange={setIsChatbotOpen}
+        />
+      )}
 
       <KeyboardShortcuts
-        onOpenChatbot={() => setIsChatbotOpen(true)}
+        onOpenChatbot={() => {
+          if (isChatbotEnabled) setIsChatbotOpen(true);
+        }}
         onOpenResume={() => setIsResumeOpen(true)}
       />
     </div>

@@ -43,14 +43,14 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Technical Colophon Footer */}
-        <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[10px] font-mono uppercase tracking-wider text-[#92928a]">
+        {/* <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[10px] font-mono uppercase tracking-wider text-[#92928a]">
           <div>
             TYPOGRAPHY: MANROPE 800/700 & INTER 400 · JETBRAINS MONO
           </div>
           <div>
             ARCHITECTURAL SPECIFICATION · NO GRADIENTS · HAIRLINE GRID
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

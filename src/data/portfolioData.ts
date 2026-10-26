@@ -56,7 +56,7 @@ export const FEATURED_PROJECT: ProjectItem = {
   impact: "Achieved 4.2x throughput increase and 47% reduction in GPU VRAM consumption across 1.2M daily visual tokens.",
   category: "Computer Vision",
   technologies: ["PyTorch", "TensorRT", "CUDA", "FastAPI", "WebRTC", "React"],
-  imageUrl: "./assets/images/project_featured_neural_1791209209904.jpg",
+  imageUrl: "./assets/images/auditsum_thumbnail.webp",
   liveUrl: "https://omni-percept-demo.vercel.app",
   githubUrl: "https://github.com/aadinathr001/auditsum",
   isFeatured: true,
@@ -140,49 +140,48 @@ export interface ExperienceItemData {
   company: string;
   location: string;
   period: string;
-  description: string;
-  technologies: string[];
-  highlights: string[];
+  description?: string;
+  technologies?: string[];
+  highlights?: string[];
 }
 
 export const EXPERIENCE_DATA: ExperienceItemData[] = [
   {
-    role: "Senior AI/ML Research Engineer",
-    company: "NeuralPulse Labs",
-    location: "Bengaluru, India (Hybrid)",
-    period: "2023 — Present",
-    description: "Leading the core inference optimization and vision-language foundation model deployment team for enterprise edge applications.",
-    technologies: ["PyTorch", "TensorRT", "CUDA C++", "Triton Server", "Python", "FastAPI", "Ray"],
+    role: "Front-End Intern",
+    company: "DataPMI Technologies LLP",
+    location: "Kochi, India (Onsite)",
+    period: "June 2025",
+    description: "Work on a project with 4 intern team",
+    technologies: ["Python", "React.js", "HTML", "CSS","FastAPI"],
     highlights: [
-      "Architected speculative decoding pipeline for multimodal models, reducing median latency by 43% on edge GPUs.",
-      "Engineered automated model quantization (FP8/INT4) workflows with minimal perplexity degradation (<0.4%).",
-      "Mentored a team of 6 engineers across distributed training infrastructure and model evaluation benchmarks."
+      "Assisted in collaborative product development for Prolex AI.",
+      "Gained hands-on experience with React.js ,HTML, CSS, and JavaScript",
     ]
   },
   {
-    role: "Machine Learning & Full-Stack Engineer",
-    company: "Kinetix Technologies",
-    location: "Bengaluru, India",
-    period: "2022 — 2023",
-    description: "Built end-to-end predictive telemetry pipelines, autonomous agent decision graphs, and interactive client-facing dashboards.",
-    technologies: ["Python", "TensorFlow", "React", "Node.js", "Docker", "PostgreSQL", "Kafka"],
-    highlights: [
-      "Deployed streaming anomaly detection system handling 450,000 events/sec with sub-second alerting.",
-      "Designed and delivered the core analytics web portal used daily by 140+ enterprise operations teams.",
-      "Reduced cloud computing costs by 34% through proactive GPU instance scheduling and auto-scaling pods."
-    ]
+    role: "Software Development Intern",
+    company: "Zyncrypt Technologies",
+    location: "Kochi, India",
+    period: "July 2024",
+    // description: "Built end-to-end predictive telemetry pipelines, autonomous agent decision graphs, and interactive client-facing dashboards.",
+    technologies: ["Python", "Linux"],
+    // highlights: [
+    //   "Deployed streaming anomaly detection system handling 450,000 events/sec with sub-second alerting.",
+    //   "Designed and delivered the core analytics web portal used daily by 140+ enterprise operations teams.",
+    //   "Reduced cloud computing costs by 34% through proactive GPU instance scheduling and auto-scaling pods."
+    // ]
   },
   {
-    role: "AI Software Engineering Intern",
-    company: "Apex Computational Systems",
-    location: "Hyderabad, India",
-    period: "2021 — 2022",
-    description: "Researched graph neural networks (GNNs) for recommendation systems and developed microservices in Python and TypeScript.",
-    technologies: ["Python", "PyTorch Geometric", "FastAPI", "TypeScript", "Redis"],
-    highlights: [
-      "Implemented heterogeneous graph convolutions that improved cold-start recommendation accuracy by 18%.",
-      "Co-authored internal technical documentation and open-source benchmark suites for vector search."
-    ]
+    role: "Machine Learning Intern",
+    company: "Intrainz Innovation Pvt Ltd",
+    location: "Kochi, India",
+    period: "Feb 2024",
+    // description: "Researched graph neural networks (GNNs) for recommendation systems and developed microservices in Python and TypeScript.",
+    technologies: ["Python", "Machine Learning"],
+    // highlights: [
+    //   "Implemented heterogeneous graph convolutions that improved cold-start recommendation accuracy by 18%.",
+    //   "Co-authored internal technical documentation and open-source benchmark suites for vector search."
+    // ]
   }
 ];
 
@@ -191,42 +190,41 @@ export interface EducationItemData {
   institution: string;
   location: string;
   period: string;
-  field: string;
+  field?: string;
   grade?: string;
-  description: string;
-  skills: string[];
-  highlights: string[];
+  description?: string;
+  skills?: string[];
+  highlights?: string[];
 }
 
 export const EDUCATION_DATA: EducationItemData[] = [
   {
-    degree: "B.Tech in Computer Science and Engineering",
-    institution: "National Institute of Technology (NIT)",
+    degree: "B.Tech in Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+    institution: "St Thomas College of Engineering & Technology (STCET),Chengannur",
     location: "Kerala, India",
-    period: "2018 — 2022",
+    period: "2022 — 2026",
     field: "Computer Science & Artificial Intelligence",
-    grade: "8.9 / 10 CGPA",
+    grade: "7.86 / 10 CGPA",
     description: "Comprehensive curriculum spanning deep learning, distributed algorithms, data structures, and computer vision systems.",
-    skills: ["Data Structures & Algorithms", "Deep Learning", "Operating Systems", "Distributed Computing", "Linear Algebra", "Database Management"],
+    skills: ["Data Structures & Algorithms","Machine Learning","Deep Learning", "Operating Systems","Linear Algebra", "Database Management","Internet of Things (IoT)","NLP","Cloud Computing","Software Testing","Soft Computing","Computer Networks"],
     highlights: [
-      "Graduated First Class with Distinction; recipient of Academic Merit Scholarship.",
-      "Published undergraduate thesis on 'Adaptive Attention Mechanisms for Real-time Video Object Segmentation'.",
-      "Led the University Machine Learning & Algorithmic Society, mentoring over 300 junior students."
+      "Flasgship Coordinator, KTU CARE NSS Unit 553 ",
+      "College Union Member",
+      "Class Representative for Students Union",
     ]
   },
   {
     degree: "Higher Secondary Certificate (HSC) in Science",
-    institution: "Kendriya Vidyalaya",
+    institution: "St Marys's Residential Public School ,Tiruvalla",
     location: "Kerala, India",
-    period: "2016 — 2018",
-    field: "Physics, Chemistry, Mathematics, Computer Science",
-    grade: "95.6%",
-    description: "Foundational studies in higher mathematics, analytical physics, and early algorithmic programming in C++ and Python.",
-    skills: ["Calculus", "Probability & Statistics", "Analytical Mechanics", "C++", "Python Fundamentals"],
-    highlights: [
-      "Ranked in top 1% nationally in national competitive science talent examination.",
-      "Won 1st prize at State Level Science Olympiad for algorithmic solar path tracking simulation."
-    ]
+    period: "2020 — 2022",
+    field: "Physics, Chemistry, Mathematics",
+    grade: "72%",
+    // description: "Foundational studies in higher mathematics, analytical physics, and early algorithmic programming in C++ and Python.",
+    skills: ["Calculus", "Probability & Statistics", "Physics", "Chemistry"],
+    // highlights: [
+    //   "NSS Unit 553 Ktu Care Coordinator",
+    // ]
   }
 ];
 
@@ -242,49 +240,13 @@ export interface CertificateItem {
 
 export const CERTIFICATES_DATA: CertificateItem[] = [
   {
-    id: "cert-aws-ml",
-    title: "AWS Certified Machine Learning – Specialty",
-    issuer: "Amazon Web Services (AWS)",
-    date: "2024",
-    credentialId: "AWS-MLS-894721",
-    skills: ["SageMaker", "Model Tuning", "MLOps", "Distributed Training"],
-    verificationUrl: "https://aws.amazon.com/verification"
-  },
-  {
-    id: "cert-deeplearning-ai",
-    title: "Deep Learning Specialization",
-    issuer: "DeepLearning.AI / Coursera",
-    date: "2023",
-    credentialId: "DLAI-DLS-541290",
-    skills: ["Neural Networks", "CNNs", "Sequence Models", "Hyperparameter Optimization"],
-    verificationUrl: "https://coursera.org/verify/specialization"
-  },
-  {
-    id: "cert-tf-dev",
-    title: "TensorFlow Developer Certificate",
-    issuer: "Google Developers",
-    date: "2023",
-    credentialId: "TF-DEV-301928",
-    skills: ["TensorFlow 2.x", "Computer Vision", "NLP", "Time Series Analysis"],
-    verificationUrl: "https://www.credential.net"
-  },
-  {
-    id: "cert-stanford-algo",
-    title: "Algorithms Specialization",
-    issuer: "Stanford Online",
-    date: "2022",
-    credentialId: "STANFORD-ALG-7731",
-    skills: ["Divide & Conquer", "Graph Search", "Greedy Algorithms", "Dynamic Programming"],
-    verificationUrl: "https://online.stanford.edu/verify"
-  },
-  {
-    id: "cert-fastai",
-    title: "Practical Deep Learning for Coders",
-    issuer: "fast.ai",
-    date: "2022",
-    credentialId: "FASTAI-2022-DL",
-    skills: ["PyTorch", "Transfer Learning", "Modern Vision Architectures", "Diffusion Models"],
-    verificationUrl: "https://fast.ai"
+    id: "cert-ibm-ai",
+    title: "Make Agentic AI Work for You",
+    issuer: "IBM SkillsBuild",
+    date: "2026",
+    credentialId: "PWID-B1039700",
+    skills: ["AI Agents", "Generative AI", "RAG", "AI Prompting Techniques"],
+    verificationUrl: "https://www.credly.com/badges/65279f45-8927-48e4-bcb2-a2328036937d/public_url"
   }
 ];
 
