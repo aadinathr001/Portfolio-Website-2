@@ -52,11 +52,11 @@ export const FEATURED_PROJECT: ProjectItem = {
   id: "project-auditSum",
   title: "AuditSum",
   subtitle: "Real-time Edge Multimodal Perception & Spatial Reasoning",
-  description: "A low-latency vision-language model serving system designed for real-time robotic telemetry and zero-shot visual question answering, operating at sub-35ms inference latency.",
-  impact: "Achieved 4.2x throughput increase and 47% reduction in GPU VRAM consumption across 1.2M daily visual tokens.",
+  description: "A governed LLM summarization service : built to prove what was allowed, what happened, and where every output came from, with policy engine and hash-chained audit log t",
+  // impact: "Achieved 4.2x throughput increase and 47% reduction in GPU VRAM consumption across 1.2M daily visual tokens.",
   category: "Computer Vision",
   technologies: ["PyTorch", "TensorRT", "CUDA", "FastAPI", "WebRTC", "React"],
-  imageUrl: "./assets/images/auditsum_thumbnail.webp",
+  imageUrl: "/assets/images/auditsum_thumb_2.webp",
   liveUrl: "https://omni-percept-demo.vercel.app",
   githubUrl: "https://github.com/aadinathr001/auditsum",
   isFeatured: true,
@@ -256,8 +256,8 @@ export interface TechItem {
   initials: string;
   category: "AI & ML" | "Frontend" | "Backend" | "Design" | "Workflow";
   type: string;
-  description: string;
-  goodFor: string;
+  description?: string;
+  goodFor?: string;
   docsUrl: string;
 }
 
@@ -279,8 +279,8 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "PT",
       category: "AI & ML",
       type: "Deep Learning Framework",
-      description: "Primary foundation for developing custom neural architectures, loss formulations, and distributed model experimentation with native autograd support.",
-      goodFor: "Custom neural network research, tensor computations, and fine-tuning foundation models.",
+      // description: "Primary foundation for developing custom neural architectures, loss formulations, and distributed model experimentation with native autograd support.",
+      // goodFor: "Custom neural network research, tensor computations, and fine-tuning foundation models.",
       docsUrl: "https://pytorch.org/docs"
     },
     {
@@ -289,8 +289,8 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "TR",
       category: "AI & ML",
       type: "High-Performance Inference",
-      description: "Low-level acceleration toolkit maximizing throughput on NVIDIA GPUs through kernel fusion, weight quantization, and memory buffer optimization.",
-      goodFor: "Sub-50ms real-time vision, speech, and generative model deployment.",
+      // description: "Low-level acceleration toolkit maximizing throughput on NVIDIA GPUs through kernel fusion, weight quantization, and memory buffer optimization.",
+      // goodFor: "Sub-50ms real-time vision, speech, and generative model deployment.",
       docsUrl: "https://developer.nvidia.com/tensorrt"
     },
     {
@@ -299,8 +299,8 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "HF",
       category: "AI & ML",
       type: "Model Ecosystem",
-      description: "Industry standard repository and runtime for state-of-the-art vision-language, diffusion, and transformer checkpoints.",
-      goodFor: "Rapid checkpoint loading, LoRA adapters, tokenization, and pipeline orchestration.",
+      // description: "Industry standard repository and runtime for state-of-the-art vision-language, diffusion, and transformer checkpoints.",
+      // goodFor: "Rapid checkpoint loading, LoRA adapters, tokenization, and pipeline orchestration.",
       docsUrl: "https://huggingface.co/docs"
     },
     {
@@ -309,30 +309,30 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "LG",
       category: "AI & ML",
       type: "Agent Orchestration",
-      description: "Graph-based cyclical orchestration engine for stateful, multi-actor AI agent networks with checkpointing and human-in-the-loop validation.",
-      goodFor: "Complex multi-step decision loops, tool-calling agents, and self-correcting pipelines.",
+      // description: "Graph-based cyclical orchestration engine for stateful, multi-actor AI agent networks with checkpointing and human-in-the-loop validation.",
+      // goodFor: "Complex multi-step decision loops, tool-calling agents, and self-correcting pipelines.",
       docsUrl: "https://langchain-ai.github.io/langgraph"
     },
-    {
-      id: "vector-dbs",
-      name: "Qdrant & Vector DBs",
-      initials: "QD",
-      category: "AI & ML",
-      type: "High-Dimension Similarity Search",
-      description: "High-throughput vector search engines utilizing HNSW graphs and payload filtering for production-scale retrieval augmented generation (RAG).",
-      goodFor: "Sub-millisecond similarity search across millions of dense embedding vectors.",
-      docsUrl: "https://qdrant.tech/documentation"
-    },
-    {
-      id: "onnx",
-      name: "ONNX Runtime",
-      initials: "OX",
-      category: "AI & ML",
-      type: "Cross-Platform Execution",
-      description: "Universal intermediate model representation enabling cross-platform model execution across CPU, edge devices, and WebAssembly in the browser.",
-      goodFor: "Hardware-agnostic deployment and client-side browser inferencing.",
-      docsUrl: "https://onnxruntime.ai/docs"
-    }
+    // {
+    //   id: "vector-dbs",
+    //   name: "Qdrant & Vector DBs",
+    //   initials: "QD",
+    //   category: "AI & ML",
+    //   type: "High-Dimension Similarity Search",
+    //   description: "High-throughput vector search engines utilizing HNSW graphs and payload filtering for production-scale retrieval augmented generation (RAG).",
+    //   goodFor: "Sub-millisecond similarity search across millions of dense embedding vectors.",
+    //   docsUrl: "https://qdrant.tech/documentation"
+    // },
+    // {
+    //   id: "onnx",
+    //   name: "ONNX Runtime",
+    //   initials: "OX",
+    //   category: "AI & ML",
+    //   type: "Cross-Platform Execution",
+    //   description: "Universal intermediate model representation enabling cross-platform model execution across CPU, edge devices, and WebAssembly in the browser.",
+    //   goodFor: "Hardware-agnostic deployment and client-side browser inferencing.",
+    //   docsUrl: "https://onnxruntime.ai/docs"
+    // }
   ],
   "Frontend": [
     {
@@ -341,8 +341,8 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "RC",
       category: "Frontend",
       type: "UI Architecture",
-      description: "Component-driven paradigm powering reactive client interfaces, server components, and responsive state machines with smooth transitions.",
-      goodFor: "High-performance reactive user experiences, data dashboards, and interactive canvases.",
+      // description: "Component-driven paradigm powering reactive client interfaces, server components, and responsive state machines with smooth transitions.",
+      // goodFor: "High-performance reactive user experiences, data dashboards, and interactive canvases.",
       docsUrl: "https://react.dev"
     },
     {
@@ -351,8 +351,8 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "TS",
       category: "Frontend",
       type: "Type-Safe Systems",
-      description: "Strict static typing layer delivering rock-solid compile-time guarantees, API contract validation, and ergonomic DX across full-stack applications.",
-      goodFor: "Refactoring safety, predictable API integrations, and scalable codebases.",
+      // description: "Strict static typing layer delivering rock-solid compile-time guarantees, API contract validation, and ergonomic DX across full-stack applications.",
+      // goodFor: "Refactoring safety, predictable API integrations, and scalable codebases.",
       docsUrl: "https://www.typescriptlang.org/docs"
     },
     {
@@ -361,31 +361,41 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "TW",
       category: "Frontend",
       type: "Utility Styling Engine",
-      description: "Modern CSS engine enabling precision typography scales, micro-interactions, dark mode elevation, and zero-runtime CSS footprint.",
-      goodFor: "Rapid, consistent design token implementation and sophisticated glassmorphism.",
+      // description: "Modern CSS engine enabling precision typography scales, micro-interactions, dark mode elevation, and zero-runtime CSS footprint.",
+      // goodFor: "Rapid, consistent design token implementation and sophisticated glassmorphism.",
       docsUrl: "https://tailwindcss.com/docs"
     },
-    {
-      id: "framer-motion",
-      name: "Motion (Framer)",
-      initials: "FM",
-      category: "Frontend",
-      type: "Fluid Motion Physics",
-      description: "Physics-driven animation library providing gesture control, layout transitions, exit animations, and hardware-accelerated transforms.",
-      goodFor: "Buttery-smooth UI transitions, tab indicators, and timeline expansions.",
-      docsUrl: "https://motion.dev"
-    }
+    // {
+    //   id: "framer-motion",
+    //   name: "Motion (Framer)",
+    //   initials: "FM",
+    //   category: "Frontend",
+    //   type: "Fluid Motion Physics",
+    //   description: "Physics-driven animation library providing gesture control, layout transitions, exit animations, and hardware-accelerated transforms.",
+    //   goodFor: "Buttery-smooth UI transitions, tab indicators, and timeline expansions.",
+    //   docsUrl: "https://motion.dev"
+    // }
   ],
   "Backend": [
     {
-      id: "python",
-      name: "FastAPI & Python 3.12",
+      id: "fastapi",
+      name: "FastAPI",
       initials: "FA",
       category: "Backend",
       type: "High-Speed Async API",
-      description: "Asynchronous ASGI framework with Pydantic data schemas, automatic OpenAPI documentation, and native async concurrency.",
-      goodFor: "AI microservices, model serving endpoints, and high-concurrency websocket streams.",
+      // description: "Asynchronous ASGI framework with Pydantic data schemas, automatic OpenAPI documentation, and native async concurrency.",
+      // goodFor: "AI microservices, model serving endpoints, and high-concurrency websocket streams.",
       docsUrl: "https://fastapi.tiangolo.com"
+    },
+        {
+      id: "python",
+      name: "Python",
+      initials: "PY",
+      category: "Backend",
+      type: " High-level programming language ",
+      // description: "Asynchronous ASGI framework with Pydantic data schemas, automatic OpenAPI documentation, and native async concurrency.",
+      // goodFor: "AI microservices, model serving endpoints, and high-concurrency websocket streams.",
+      docsUrl: "https://python.org"
     },
     {
       id: "nodejs",
@@ -393,40 +403,40 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "ND",
       category: "Backend",
       type: "Runtime Environment",
-      description: "High-throughput non-blocking event-driven runtime ideal for real-time collaboration servers, authentication proxies, and cloud functions.",
-      goodFor: "Full-stack server APIs, OAuth handshakes, and event stream proxies.",
+      // description: "High-throughput non-blocking event-driven runtime ideal for real-time collaboration servers, authentication proxies, and cloud functions.",
+      // goodFor: "Full-stack server APIs, OAuth handshakes, and event stream proxies.",
       docsUrl: "https://nodejs.org/docs"
     },
     {
       id: "postgres",
-      name: "PostgreSQL & Drizzle",
+      name: "PostgreSQL",
       initials: "PG",
       category: "Backend",
       type: "Relational Storage",
-      description: "ACID-compliant relational database engine augmented with JSONB, pgvector extensions, and type-safe schema migrations.",
-      goodFor: "Relational data modeling, vector-embedded search, and transactional integrity.",
+      // description: "ACID-compliant relational database engine augmented with JSONB, pgvector extensions, and type-safe schema migrations.",
+      // goodFor: "Relational data modeling, vector-embedded search, and transactional integrity.",
       docsUrl: "https://www.postgresql.org/docs"
     },
-    {
-      id: "redis",
-      name: "Redis & Upstash",
-      initials: "RD",
-      category: "Backend",
-      type: "In-Memory Data Grid",
-      description: "Ultra-low latency in-memory key-value store for distributed caching, session state management, Pub/Sub channels, and rate limiting.",
-      goodFor: "Fast session tokens, inference result caching, and realtime message broker.",
-      docsUrl: "https://redis.io/docs"
-    }
+    // {
+    //   id: "redis",
+    //   name: "Redis & Upstash",
+    //   initials: "RD",
+    //   category: "Backend",
+    //   type: "In-Memory Data Grid",
+    //   // description: "Ultra-low latency in-memory key-value store for distributed caching, session state management, Pub/Sub channels, and rate limiting.",
+    //   // goodFor: "Fast session tokens, inference result caching, and realtime message broker.",
+    //   docsUrl: "https://redis.io/docs"
+    // }
   ],
   "Design": [
     {
       id: "figma",
-      name: "Figma & Tokens",
+      name: "Figma",
       initials: "FG",
       category: "Design",
       type: "Interface Architecture",
-      description: "Collaborative design environment used for component variant design, responsive layouts, design token mapping, and interactive prototypes.",
-      goodFor: "Systematic UI layout planning, interactive wireframing, and SVG asset refinement.",
+      // description: "Collaborative design environment used for component variant design, responsive layouts, design token mapping, and interactive prototypes.",
+      // goodFor: "Systematic UI layout planning, interactive wireframing, and SVG asset refinement.",
       docsUrl: "https://help.figma.com"
     },
     {
@@ -435,8 +445,8 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "LC",
       category: "Design",
       type: "Iconography System",
-      description: "Clean, consistent 24px grid iconography crafted with geometric clarity and adaptable stroke weights for dark and light surfaces.",
-      goodFor: "Clean functional affordances, navigation icons, and status badges.",
+      // description: "Clean, consistent 24px grid iconography crafted with geometric clarity and adaptable stroke weights for dark and light surfaces.",
+      // goodFor: "Clean functional affordances, navigation icons, and status badges.",
       docsUrl: "https://lucide.dev"
     },
     {
@@ -445,16 +455,15 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "TY",
       category: "Design",
       type: "Font Pairings & Scale",
-      description: "Disciplined pairing of authoritative display type (Manrope 800/700) with highly legible neutral body prose (Inter 400/500) and tabular monospaces.",
-
-      goodFor: "Creating distinctive visual presence without relying on generic AI styling.",
+      // description: "Disciplined pairing of authoritative display type (Manrope 800/700) with highly legible neutral body prose (Inter 400/500) and tabular monospaces.",
+      // goodFor: "Creating distinctive visual presence without relying on generic AI styling.",
       docsUrl: "https://fonts.google.com"
     }
   ],
   "Workflow": [
     {
       id: "docker",
-      name: "Docker & Containers",
+      name: "Docker",
       initials: "DK",
       category: "Workflow",
       type: "Containerization",
@@ -468,29 +477,29 @@ export const TECH_STACK_DATA: Record<TechCategoryType, TechItem[]> = {
       initials: "GH",
       category: "Workflow",
       type: "Version Control & Automation",
-      description: "Automated test suites, model verification checks, linting pipelines, and trunk-based deployment workflows.",
-      goodFor: "Continuous integration, automated preview deployments, and code quality gating.",
+      // description: "Automated test suites, model verification checks, linting pipelines, and trunk-based deployment workflows.",
+      // goodFor: "Continuous integration, automated preview deployments, and code quality gating.",
       docsUrl: "https://docs.github.com"
     },
     {
       id: "vercel",
-      name: "Vercel & Edge CDN",
+      name: "Vercel",
       initials: "VC",
       category: "Workflow",
       type: "Cloud Edge Hosting",
-      description: "Zero-configuration continuous deployment platform with global edge caching, instant preview links, and serverless compute.",
-      goodFor: "Deploying high-speed production portfolios, frontend web apps, and edge redirects.",
+      // description: "Zero-configuration continuous deployment platform with global edge caching, instant preview links, and serverless compute.",
+      // goodFor: "Deploying high-speed production portfolios, frontend web apps, and edge redirects.",
       docsUrl: "https://vercel.com/docs"
     },
-    {
-      id: "wandb",
-      name: "Weights & Biases",
-      initials: "WB",
-      category: "Workflow",
-      type: "ML Experiment Tracking",
-      description: "Centralized experimentation dashboard recording loss curves, hyperparameter sweeps, model artifacts, and hardware GPU utilization.",
-      goodFor: "Rigorous ML experiment tracking and reproducible research milestones.",
-      docsUrl: "https://docs.wandb.ai"
-    }
+    // {
+    //   id: "wandb",
+    //   name: "Weights & Biases",
+    //   initials: "WB",
+    //   category: "Workflow",
+    //   type: "ML Experiment Tracking",
+    //   description: "Centralized experimentation dashboard recording loss curves, hyperparameter sweeps, model artifacts, and hardware GPU utilization.",
+    //   goodFor: "Rigorous ML experiment tracking and reproducible research milestones.",
+    //   docsUrl: "https://docs.wandb.ai"
+    // }
   ]
 };

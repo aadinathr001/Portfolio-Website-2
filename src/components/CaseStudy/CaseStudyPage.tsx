@@ -194,7 +194,7 @@ export const CaseStudyPage: React.FC<{ slug: string }> = ({ slug }) => {
           <div className="relative border border-[#e6e6e1] bg-white p-3 mb-12 shadow-sm">
             <div className="aspect-[16/8] overflow-hidden bg-[#f0f0eb] border border-[#e6e6e1]">
               <img
-                src={project.imageUrl}
+                src="/assets/images/auditsum_thumbnail.webp"
                 alt={project.title}
                 className="w-full h-full object-cover grayscale-[0.2]"
                 referrerPolicy="no-referrer"
@@ -203,9 +203,9 @@ export const CaseStudyPage: React.FC<{ slug: string }> = ({ slug }) => {
                 }}
               />
             </div>
-            <div className="absolute top-6 left-6 bg-[#fbfbf9]/95 border border-[#e6e6e1] px-2.5 py-1 text-[10px] font-mono tracking-wider text-[#121212] uppercase">
+            {/* <div className="absolute top-6 left-6 bg-[#fbfbf9]/95 border border-[#e6e6e1] px-2.5 py-1 text-[10px] font-mono tracking-wider text-[#121212] uppercase">
               SYS.REF // {String(index + 1).padStart(2, "0")} · {project.category}
-            </div>
+            </div> */}
           </div>
 
           {/* Metrics strip */}

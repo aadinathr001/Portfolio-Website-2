@@ -152,14 +152,14 @@ export const TechStack: React.FC = () => {
                   {selectedTech.description}
                 </p>
 
-                <div className="p-4 bg-[#fbfbf9] border border-[#e6e6e1] mb-6">
+                {/* <div className="p-4 bg-[#fbfbf9] border border-[#e6e6e1] mb-6">
                   <div className="text-[10px] font-mono uppercase tracking-widest text-[#72726c] mb-1">
                     PRODUCTION USE CASE
                   </div>
                   <div className="text-xs font-medium text-[#121212] leading-relaxed">
                     {selectedTech.goodFor}
                   </div>
-                </div>
+                </div> */}
 
                 {selectedTech.docsUrl && (
                   <a

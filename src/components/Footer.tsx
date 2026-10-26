@@ -8,14 +8,14 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-[#e6e6e1] bg-[#fbfbf9] pt-12 pb-24 sm:pb-20 text-[#60605a]">
+    <footer className="border-t border-[#e6e6e1] bg-[#fbfbf9] pt-10 pb-0 text-[#60605a]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-[#e6e6e1]">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-[#e6e6e1]">
           {/* Colophon Left */}
           <div>
-            <div className="font-['Manrope'] font-extrabold text-lg tracking-tight text-[#121212] mb-1">
+            {/* <div className="font-['Manrope'] font-extrabold text-lg tracking-tight text-[#121212] mb-1">
               {PORTFOLIO_CONFIG.NAME}
-            </div>
+            </div> */}
             <div className="text-[11px] font-mono uppercase tracking-wider text-[#82827a]">
               {/* SWISS EDITORIAL PORTFOLIO // ISSUE 2026 · ALL RIGHTS RESERVED */}
             </div>
