@@ -56,7 +56,7 @@ export const FEATURED_PROJECT: ProjectItem = {
   // impact: "Achieved 4.2x throughput increase and 47% reduction in GPU VRAM consumption across 1.2M daily visual tokens.",
   category: "Computer Vision",
   technologies: ["PyTorch", "TensorRT", "CUDA", "FastAPI", "WebRTC", "React"],
-  imageUrl: "/assets/images/auditsum_thumb_2.webp",
+  imageUrl: "./assets/images/auditsum_thumb_2.webp",
   liveUrl: "https://omni-percept-demo.vercel.app",
   githubUrl: "https://github.com/aadinathr001/auditsum",
   isFeatured: true,
