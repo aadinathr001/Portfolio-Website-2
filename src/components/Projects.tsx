@@ -66,9 +66,14 @@ export const Projects: React.FC = () => {
                     src={FEATURED_PROJECT.imageUrl}
                     alt={FEATURED_PROJECT.title}
                     className="w-full h-full object-cover object-center grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
-                    referrerPolicy="no-referrer"
+                    loading="eager"
+                    decoding="async"
                     onError={(e) => {
-                      (e.target as HTMLElement).style.display = "none";
+                      const img = e.currentTarget;
+                      if (!img.dataset.fallback) {
+                        img.dataset.fallback = "1";
+                        img.src = "/assets/images/auditsum_thumb_2.webp";
+                      }
                     }}
                   />
                   {/* Field Note Stamp */}

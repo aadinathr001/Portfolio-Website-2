@@ -17,18 +17,25 @@ When hosting a Vite SPA on GitHub Pages under a repository subpath (e.g. `https:
    - **Fix Applied**: Added `base: './'` to `vite.config.ts` so all assets are resolved relative to the deployment URL.
 
 2. **Case Sensitivity & Asset Resolution**:
-   - `src/components/ResumeModal.tsx` now imports `../assets/aadinath_r_resume.pdf?url`.
+   - `src/components/ResumeModal.tsx` imports `../assets/aadinath_r_resume.pdf?url`.
    - Both `aadinath_r_resume.pdf` and `Aadinath_R_Resume.pdf` are mirrored in `src/assets` and `public/assets/` to ensure zero casing mismatches on Linux-based GitHub Actions runners or local Windows/macOS clones.
-   - `hero.webp` is synced across `src/assets/images/` and `public/assets/images/` so `./assets/images/hero.webp` resolves smoothly in dev and production.
+   - All profile and project images are stored in `src/assets/images/` and imported directly via ES module imports (`import heroImage from '../assets/images/hero.webp'`, etc.).
 
-3. **Asset Paths in `portfolioData.ts`**:
-   - Several image paths were prefixed with `/public/` or `/src/` (e.g. `/public/assets/images/hero.jpg`, `/src/assets/images/...`).
-   - In production builds, `/src/` and `/public/` prefixes are invalid because files in `public/` are served from `./assets/images/...`.
-   - **Fix Applied**: Copied all image assets to `public/assets/images/` and updated `src/data/portfolioData.ts` to use clean relative paths `./assets/images/...`.
+3. **Direct Asset Bundling via `src/assets/`**:
+   - Rather than referencing loose URL strings, all image assets are imported directly from `src/assets/images/` into `src/data/portfolioData.ts` and `src/components/CaseStudy/CaseStudyPage.tsx`.
+   - Vite processes these imports during bundling, automatically resolving asset paths, optimizing filenames, and guaranteeing no 404s across GitHub Pages subpath deployments.
 
 4. **Jekyll Processing Interference**:
    - GitHub Pages by default passes all repositories through Jekyll, which ignores directories starting with underscores and can interfere with static asset bundles.
    - **Fix Applied**: Added `.nojekyll` to `public/` and ensured `touch dist/.nojekyll` runs during the workflow.
+
+5. **Case Study Image Blank Fix**:
+   - **Root Cause**: The hero image in `src/components/CaseStudy/CaseStudyPage.tsx` previously contained `referrerPolicy="no-referrer"` and a destructive error handler: `onError={(e) => { (e.target as HTMLElement).style.display = "none"; }}`. In nested iframe contexts (like AI Studio previews) or strict browser referrer setups, `no-referrer` triggered an image error, permanently hiding the element and leaving an empty gray box. Additionally, strict slug casing caused mismatch for lowercase routes.
+   - **Fix Applied**:
+     1. Removed `referrerPolicy="no-referrer"` so images load under normal origin policies.
+     2. Removed `display: none` and introduced a multi-tier fallback mechanism (`project.imageUrl` → `auditSumThumb2` → `auditSumThumbnail` → `/assets/images/auditsum_thumb_2.webp` → Architectural schematic card).
+     3. Upgraded the container to responsive aspect ratio with guaranteed minimum heights (`min-h-[220px] sm:min-h-[340px] md:min-h-[420px]`).
+     4. Made slug resolution case-insensitive and support both slug and `project-<slug>` IDs.
 
 ---
 

@@ -11,6 +11,8 @@ import {
 import { PROJECTS_DATA } from "../../data/portfolioData";
 import { CASE_STUDIES } from "../../data/caseStudies";
 import { backToProjects, goHome, navigate, projectPath, projectSlug } from "../../utils/router";
+import auditSumThumb2 from "../../assets/images/auditsum_thumb_2.webp";
+import auditSumThumbnail from "../../assets/images/auditsum_thumbnail.webp";
 
 const SECTIONS = [
   { id: "overview", label: "Overview" },
@@ -49,10 +51,26 @@ const Dash: React.FC = () => (
 );
 
 export const CaseStudyPage: React.FC<{ slug: string }> = ({ slug }) => {
-  const index = PROJECTS_DATA.findIndex((p) => projectSlug(p.id) === slug);
-  const project = PROJECTS_DATA[index];
+  const normalizedSlug = (slug || "").toLowerCase();
+  const index = PROJECTS_DATA.findIndex(
+    (p) =>
+      projectSlug(p.id).toLowerCase() === normalizedSlug ||
+      p.id.toLowerCase() === normalizedSlug ||
+      p.id.toLowerCase() === `project-${normalizedSlug}`
+  );
+  const project = index !== -1 ? PROJECTS_DATA[index] : undefined;
   const cs = project ? CASE_STUDIES[project.id] : undefined;
   const [active, setActive] = useState("overview");
+
+  const [imageSrc, setImageSrc] = useState<string>(
+    project?.imageUrl || auditSumThumb2 || auditSumThumbnail
+  );
+  const [imageError, setImageError] = useState(false);
+
+  useEffect(() => {
+    setImageSrc(project?.imageUrl || auditSumThumb2 || auditSumThumbnail);
+    setImageError(false);
+  }, [project?.id, project?.imageUrl]);
 
   // Page title
   useEffect(() => {
@@ -193,16 +211,39 @@ export const CaseStudyPage: React.FC<{ slug: string }> = ({ slug }) => {
 
           {/* Hero image */}
           <div className="relative border border-[#e6e6e1] bg-white p-3 mb-12 shadow-sm">
-            <div className="aspect-[16/8] overflow-hidden bg-[#f0f0eb] border border-[#e6e6e1]">
-              <img
-                src="./assets/images/auditsum_thumbnail.webp"
-                alt={project.title}
-                className="w-full h-full object-cover grayscale-[0.2]"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = "none";
-                }}
-              />
+            <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[16/8] min-h-[220px] sm:min-h-[340px] md:min-h-[420px] overflow-hidden bg-[#f0f0eb] border border-[#e6e6e1] flex items-center justify-center">
+              {!imageError ? (
+                <img
+                  src={imageSrc}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-center grayscale-0 transition-opacity duration-300"
+                  loading="eager"
+                  decoding="async"
+                  onError={() => {
+                    if (imageSrc !== auditSumThumb2 && auditSumThumb2) {
+                      setImageSrc(auditSumThumb2);
+                    } else if (imageSrc !== auditSumThumbnail && auditSumThumbnail) {
+                      setImageSrc(auditSumThumbnail);
+                    } else if (imageSrc !== "/assets/images/auditsum_thumb_2.webp") {
+                      setImageSrc("/assets/images/auditsum_thumb_2.webp");
+                    } else {
+                      setImageError(true);
+                    }
+                  }}
+                />
+              ) : (
+                <div className="p-8 text-center flex flex-col items-center justify-center">
+                  <div className="text-[11px] font-mono uppercase tracking-widest text-[#c26d52] font-semibold mb-2">
+                    SYS.SPEC // ARCHITECTURAL SCHEMATIC
+                  </div>
+                  <div className="font-['Manrope'] font-bold text-xl text-[#121212] mb-1">
+                    {project.title}
+                  </div>
+                  <div className="text-xs font-mono uppercase text-[#70706a]">
+                    {project.category} · {project.subtitle}
+                  </div>
+                </div>
+              )}
             </div>
             {/* <div className="absolute top-6 left-6 bg-[#fbfbf9]/95 border border-[#e6e6e1] px-2.5 py-1 text-[10px] font-mono tracking-wider text-[#121212] uppercase">
               SYS.REF // {String(index + 1).padStart(2, "0")} · {project.category}
