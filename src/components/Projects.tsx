@@ -126,13 +126,13 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* External Actions */}
-                <div className="flex items-center gap-4 pt-6 border-t border-[#e6e6e1]">
+                <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-6 border-t border-[#e6e6e1]">
                   {FEATURED_PROJECT.liveUrl && (
                     <a
                       href={FEATURED_PROJECT.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-[#121212] hover:bg-[#282826] text-white px-4 py-2 text-xs font-mono uppercase tracking-wider transition-colors"
+                      className="inline-flex items-center gap-2 bg-[#121212] hover:bg-[#282826] text-white px-3.5 sm:px-4 py-2 text-xs font-mono uppercase tracking-wider transition-colors min-h-[38px]"
                     >
                       <span>LIVE SYSTEM</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -142,7 +142,7 @@ export const Projects: React.FC = () => {
                     href={FEATURED_PROJECT.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border border-[#d0d0c8] hover:border-[#121212] text-[#121212] px-4 py-2 text-xs font-mono uppercase tracking-wider transition-colors"
+                    className="inline-flex items-center gap-2 border border-[#d0d0c8] hover:border-[#121212] text-[#121212] px-3.5 sm:px-4 py-2 text-xs font-mono uppercase tracking-wider transition-colors min-h-[38px]"
                   >
                     <Github className="w-3.5 h-3.5" />
                     <span>REPOSITORY</span>
@@ -150,7 +150,7 @@ export const Projects: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => openProject(FEATURED_PROJECT.id)}
-                    className="ml-auto inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#c26d52] font-semibold group-hover:gap-2.5 transition-all cursor-pointer"
+                    className="ml-auto inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#c26d52] font-semibold group-hover:gap-2.5 transition-all cursor-pointer py-2 min-h-[38px]"
                   >
                     CASE STUDY <ArrowRight className="w-3.5 h-3.5" />
                   </button>

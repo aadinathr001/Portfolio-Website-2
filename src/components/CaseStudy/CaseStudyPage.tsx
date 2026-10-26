@@ -120,25 +120,26 @@ export const CaseStudyPage: React.FC<{ slug: string }> = ({ slug }) => {
     <div className="min-h-screen">
       {/* Top bar */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#fbfbf9]/92 backdrop-blur-md border-b border-[#e6e6e1]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between gap-2">
           <button
             onClick={backToProjects}
-            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-[#121212] hover:text-[#c26d52] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] font-mono uppercase tracking-wider text-[#121212] hover:text-[#c26d52] transition-colors cursor-pointer shrink-0"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>ALL PROJECTS</span>
+            <span className="hidden sm:inline">ALL PROJECTS</span>
+            <span className="sm:hidden">PROJECTS</span>
           </button>
 
           <div className="hidden sm:block text-[11px] font-mono uppercase tracking-widest text-[#8a8a82]">
             CASE STUDY {String(index + 1).padStart(2, "0")} / {String(PROJECTS_DATA.length).padStart(2, "0")}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <button
               onClick={() => navigate(projectPath(prev.id))}
               aria-label={`Previous: ${prev.title}`}
               title={prev.title}
-              className="p-1.5 border border-[#d6d6ce] hover:border-[#121212] text-[#121212] transition-colors cursor-pointer"
+              className="p-1.5 border border-[#d6d6ce] hover:border-[#121212] text-[#121212] transition-colors cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -146,13 +147,13 @@ export const CaseStudyPage: React.FC<{ slug: string }> = ({ slug }) => {
               onClick={() => navigate(projectPath(next.id))}
               aria-label={`Next: ${next.title}`}
               title={next.title}
-              className="p-1.5 border border-[#d6d6ce] hover:border-[#121212] text-[#121212] transition-colors cursor-pointer"
+              className="p-1.5 border border-[#d6d6ce] hover:border-[#121212] text-[#121212] transition-colors cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
             <button
               onClick={() => goHome("contact")}
-              className="ml-2 px-3.5 py-1 text-[11px] font-mono tracking-wider uppercase text-[#121212] border border-[#d6d6ce] hover:border-[#121212] transition-colors cursor-pointer"
+              className="ml-1 sm:ml-2 px-2.5 sm:px-3.5 py-1 text-[11px] font-mono tracking-wider uppercase text-[#121212] border border-[#d6d6ce] hover:border-[#121212] transition-colors cursor-pointer min-h-[36px] flex items-center"
             >
               CONTACT
             </button>

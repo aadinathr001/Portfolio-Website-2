@@ -90,10 +90,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             </div> */}
 
             {/* Swiss Architectural Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
               <button
                 onClick={() => scrollToSection("projects")}
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#121212] hover:bg-[#2a2a28] text-white text-[11px] font-mono uppercase tracking-wider transition-colors cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#121212] hover:bg-[#2a2a28] text-white text-[11px] font-mono uppercase tracking-wider transition-colors cursor-pointer w-full sm:w-auto"
               >
                 <span>EXPLORE SELECTED SYSTEMS</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -101,14 +101,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
 
               <button
                 onClick={() => scrollToSection("contact")}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#cfcfc7] hover:border-[#121212] hover:bg-neutral-100/50 text-[#121212] text-[11px] font-mono uppercase tracking-wider transition-colors cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#cfcfc7] hover:border-[#121212] hover:bg-neutral-100/50 text-[#121212] text-[11px] font-mono uppercase tracking-wider transition-colors cursor-pointer w-full sm:w-auto"
               >
                 <span>GET IN TOUCH</span>
               </button>
 
               <button
                 onClick={onOpenResume}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#cfcfc7] hover:border-[#121212] hover:bg-neutral-100/50 text-[#121212] text-[11px] font-mono uppercase tracking-wider transition-colors cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#cfcfc7] hover:border-[#121212] hover:bg-neutral-100/50 text-[#121212] text-[11px] font-mono uppercase tracking-wider transition-colors cursor-pointer w-full sm:w-auto"
               >
                 <span>TECHNICAL CV</span>
                 <CornerDownRight className="w-3.5 h-3.5 text-[#888880]" />
@@ -118,8 +118,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
 
 
           {/* Right Column: Architectural Field Specimen (Profile Image) */}
-          <div className="lg:col-span-4 flex flex-col items-start lg:items-end">
-            <div className="relative w-full max-w-[340px] bg-white border border-[#e6e6e1] p-3 shadow-sm">
+          <div className="lg:col-span-4 flex flex-col items-center lg:items-end w-full">
+            <div className="relative w-full max-w-[280px] sm:max-w-[340px] bg-white border border-[#e6e6e1] p-3 shadow-sm mx-auto lg:mx-0">
               {/* Corner crosshairs */}
               <span className="absolute -top-1.5 -left-1.5 text-xs font-mono text-[#a8a8a0] select-none">+</span>
               <span className="absolute -top-1.5 -right-1.5 text-xs font-mono text-[#a8a8a0] select-none">+</span>
@@ -132,7 +132,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                   // src="/public/assets/images/hero.jpg"
                   src={PORTFOLIO_CONFIG.PROFILE_IMAGE}
                   alt={NAME}
-                  className="w-full h-full object-cover object-center grayscale contrast-[1.05] hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover object-center grayscale-0 md:grayscale contrast-[1.05] md:hover:grayscale-0 transition-all duration-700"
                 />
 
               </div>

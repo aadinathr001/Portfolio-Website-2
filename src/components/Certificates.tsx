@@ -19,7 +19,7 @@ export const Certificates: React.FC = () => {
           {CERTIFICATES_DATA.map((cert) => (
             <div
               key={cert.id}
-              className="bg-white border border-[#e6e6e1] hover:border-[#121212] p-6 flex flex-col justify-between transition-colors shadow-sm"
+              className="bg-white border border-[#e6e6e1] hover:border-[#121212] p-5 sm:p-6 flex flex-col justify-between transition-colors shadow-sm"
             >
               <div>
                 <div className="flex items-center justify-between text-[11px] font-mono text-[#82827a] uppercase mb-3">
@@ -53,7 +53,7 @@ export const Certificates: React.FC = () => {
                   href={cert.verificationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#121212] hover:text-[#c26d52] font-semibold"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#121212] hover:text-[#c26d52] font-semibold min-h-[38px] py-1"
                 >
                   <span>VERIFY CREDENTIAL</span>
                   <ExternalLink className="w-3 h-3" />
