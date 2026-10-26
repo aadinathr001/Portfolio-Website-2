@@ -1,8 +1,8 @@
 import heroImage from "../assets/images/hero.webp";
 import auditSumThumb2 from "../assets/images/auditsum_thumb_2.webp";
-import projectAgentFlow from "../assets/images/project_agent_flow_1791209224739.jpg";
-import projectRagEngine from "../assets/images/project_rag_engine_1791209236235.jpg";
-import projectFeaturedNeural from "../assets/images/project_featured_neural_1791209209904.jpg";
+import projectAgentFlow from "../assets/images/auditsum_thumb_2.webp";
+import projectRagEngine from "../assets/images/auditsum_thumb_2.webp";
+import projectFeaturedNeural from "../assets/images/auditsum_thumb_2.webp";
 
 /**
  * Portfolio Data Configuration
@@ -26,8 +26,8 @@ export interface PortfolioConfig {
 
 export const PORTFOLIO_CONFIG: PortfolioConfig = {
   NAME: "Aadinath R",
-  ROLE: "AI/ML Engineer & Full-Stack Developer",
-  SHORT_INTRO: "I engineer distributed neural architectures, autonomous agent workflows, and resilient full-stack systems. Passionate about turning complex multimodal research into simple, high-impact products.",
+  ROLE: "AI/ML Engineer",
+  SHORT_INTRO: "I'm passionate about bringing AI into everyday software, exploring how intelligent models, agentic workflows, and modern web technologies can come together to create meaningful digital experiences.",
   PROFILE_IMAGE: heroImage,
   RESUME_LINK: "#resume",
   LOCATION: "Bengaluru, India",

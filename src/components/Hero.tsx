@@ -20,7 +20,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
   return (
     <section
       id="about"
-      className="relative pt-32 pb-20 sm:pt-36 sm:pb-28 border-b border-[#e6e6e1]"
+      className="relative pt-10 pb-20 sm:pt-20 sm:pb-28 border-b border-[#e6e6e1]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Top Technical Kicker Bar */}
