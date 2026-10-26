@@ -132,7 +132,7 @@ export const Projects: React.FC = () => {
 
                 {/* External Actions */}
                 <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-6 border-t border-[#e6e6e1]">
-                  {FEATURED_PROJECT.liveUrl && (
+                  {/* {FEATURED_PROJECT.liveUrl && (
                     <a
                       href={FEATURED_PROJECT.liveUrl}
                       target="_blank"
@@ -142,7 +142,7 @@ export const Projects: React.FC = () => {
                       <span>LIVE SYSTEM</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
-                  )}
+                  )} */}
                   <a
                     href={FEATURED_PROJECT.githubUrl}
                     target="_blank"

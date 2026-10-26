@@ -63,7 +63,7 @@ export const FEATURED_PROJECT: ProjectItem = {
   category: "Computer Vision",
   technologies: ["PyTorch", "TensorRT", "CUDA", "FastAPI", "WebRTC", "React"],
   imageUrl: auditSumThumb2,
-  liveUrl: "https://omni-percept-demo.vercel.app",
+  // liveUrl: "https://omni-percept-demo.vercel.app",
   githubUrl: "https://github.com/aadinathr001/auditsum",
   isFeatured: true,
   // metrics: [
