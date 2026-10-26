@@ -63,12 +63,12 @@ export const CaseStudyPage: React.FC<{ slug: string }> = ({ slug }) => {
   const [active, setActive] = useState("overview");
 
   const [imageSrc, setImageSrc] = useState<string>(
-    project?.imageUrl || auditSumThumb2 || auditSumThumbnail
+    project?.imageUrl || auditSumThumbnail
   );
   const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
-    setImageSrc(project?.imageUrl || auditSumThumb2 || auditSumThumbnail);
+    setImageSrc(auditSumThumbnail);
     setImageError(false);
   }, [project?.id, project?.imageUrl]);
 
@@ -224,7 +224,7 @@ export const CaseStudyPage: React.FC<{ slug: string }> = ({ slug }) => {
                       setImageSrc(auditSumThumb2);
                     } else if (imageSrc !== auditSumThumbnail && auditSumThumbnail) {
                       setImageSrc(auditSumThumbnail);
-                    } else if (imageSrc !== "/assets/images/auditsum_thumb_2.webp") {
+                    } else if (imageSrc !== "/assets/images/auditsum_thumbnail.webp") {
                       setImageSrc("/assets/images/auditsum_thumb_2.webp");
                     } else {
                       setImageError(true);
