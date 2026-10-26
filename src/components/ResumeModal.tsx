@@ -86,12 +86,24 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* PDF Viewer */}
-        <div className="flex-1 bg-[#f5f5f0] min-h-0">
+        <div className="flex-1 bg-[#f5f5f0] min-h-0 relative flex flex-col">
+          <div className="sm:hidden px-4 py-2 bg-[#f0f0eb] border-b border-[#e6e6e1] flex items-center justify-between text-[11px] font-mono text-[#555550] shrink-0">
+            <span>MOBILE PREVIEW</span>
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#c26d52] font-semibold underline inline-flex items-center gap-1"
+            >
+              <span>OPEN FULL PDF</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
           <iframe
             ref={iframeRef}
             src={resumeUrl}
             title={`${PORTFOLIO_CONFIG.NAME} Resume`}
-            className="w-full h-full border-0"
+            className="w-full flex-1 border-0"
           />
         </div>
 

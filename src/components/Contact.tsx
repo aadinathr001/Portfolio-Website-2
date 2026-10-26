@@ -22,7 +22,7 @@ export const Contact: React.FC = () => {
         </div>
 
         <div className="max-w-3xl">
-          <div className="p-8 bg-white border border-[#e6e6e1] shadow-sm">
+          <div className="p-5 sm:p-8 bg-white border border-[#e6e6e1] shadow-sm">
             <div className="text-[11px] font-mono uppercase tracking-widest text-[#72726c] mb-2 font-medium">
               DIRECT INBOX
             </div>
@@ -34,8 +34,8 @@ export const Contact: React.FC = () => {
             </p> */}
 
             {/* Copy Email Box */}
-            <div className="flex items-center justify-between p-3.5 bg-[#fbfbf9] border border-[#e6e6e1] mb-6">
-              <div className="flex items-center gap-3 overflow-hidden">
+            <div className="flex items-center justify-between p-3 sm:p-3.5 bg-[#fbfbf9] border border-[#e6e6e1] mb-6">
+              <div className="flex items-center gap-2.5 sm:gap-3 overflow-hidden min-w-0">
                 <Mail className="w-4 h-4 text-[#c26d52] shrink-0" />
                 <span className="text-xs sm:text-sm font-mono text-[#121212] truncate">
                   {PORTFOLIO_CONFIG.EMAIL}
@@ -43,7 +43,7 @@ export const Contact: React.FC = () => {
               </div>
               <button
                 onClick={handleCopyEmail}
-                className="px-2.5 py-1 text-[11px] font-mono uppercase border border-[#d6d6ce] hover:border-[#121212] text-[#121212] transition-colors ml-2 shrink-0 cursor-pointer"
+                className="px-3 py-1.5 text-[11px] font-mono uppercase border border-[#d6d6ce] hover:border-[#121212] text-[#121212] transition-colors ml-2 shrink-0 cursor-pointer min-h-[36px]"
                 title="Copy email to clipboard"
               >
                 {copied ? (
@@ -59,12 +59,12 @@ export const Contact: React.FC = () => {
               {/* <div className="text-[10px] font-mono uppercase tracking-wider text-[#82827a] mb-3">
                 DIGITAL COORDINATES
               </div> */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5">
                 <a
                   href={PORTFOLIO_CONFIG.GITHUB}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#dcdcd4] hover:border-[#121212] text-xs font-mono uppercase text-[#333330] transition-colors"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 border border-[#dcdcd4] hover:border-[#121212] text-xs font-mono uppercase text-[#333330] transition-colors min-h-[40px]"
                 >
                   <Github className="w-3.5 h-3.5" />
                   <span>GITHUB</span>
@@ -73,7 +73,7 @@ export const Contact: React.FC = () => {
                   href={PORTFOLIO_CONFIG.LINKEDIN}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#dcdcd4] hover:border-[#121212] text-xs font-mono uppercase text-[#333330] transition-colors"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 border border-[#dcdcd4] hover:border-[#121212] text-xs font-mono uppercase text-[#333330] transition-colors min-h-[40px]"
                 >
                   <Linkedin className="w-3.5 h-3.5" />
                   <span>LINKEDIN</span>

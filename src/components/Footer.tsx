@@ -22,20 +22,20 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links in monospace */}
-          <div className="flex flex-wrap items-center gap-6 text-[11px] font-mono uppercase tracking-wider">
-            <a href="#about" className="hover:text-[#121212] transition-colors">01 ABOUT</a>
-            <a href="#projects" className="hover:text-[#121212] transition-colors">02 PROJECTS</a>
-            <a href="#experience" className="hover:text-[#121212] transition-colors">03 EXPERIENCE</a>
-            <a href="#education" className="hover:text-[#121212] transition-colors">04 EDUCATION</a>
-            <a href="#certificates" className="hover:text-[#121212] transition-colors">05 CERTIFICATES</a>
-            <a href="#stack" className="hover:text-[#121212] transition-colors">06 STACK</a>
-            <a href="#contact" className="hover:text-[#121212] transition-colors">07 CONTACT</a>
+          <div className="flex flex-wrap items-center gap-x-5 sm:gap-x-6 gap-y-2.5 text-[11px] font-mono uppercase tracking-wider">
+            <a href="#about" className="hover:text-[#121212] transition-colors py-1">01 ABOUT</a>
+            <a href="#projects" className="hover:text-[#121212] transition-colors py-1">02 PROJECTS</a>
+            <a href="#experience" className="hover:text-[#121212] transition-colors py-1">03 EXPERIENCE</a>
+            <a href="#education" className="hover:text-[#121212] transition-colors py-1">04 EDUCATION</a>
+            <a href="#certificates" className="hover:text-[#121212] transition-colors py-1">05 CERTIFICATES</a>
+            <a href="#stack" className="hover:text-[#121212] transition-colors py-1">06 STACK</a>
+            <a href="#contact" className="hover:text-[#121212] transition-colors py-1">07 CONTACT</a>
           </div>
 
           {/* Back to top */}
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-3.5 py-1.5 border border-[#d6d6ce] hover:border-[#121212] text-xs font-mono uppercase text-[#121212] transition-colors cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3.5 py-2.5 sm:py-1.5 border border-[#d6d6ce] hover:border-[#121212] text-xs font-mono uppercase text-[#121212] transition-colors cursor-pointer min-h-[40px] sm:min-h-0"
           >
             <span>RETURN TO TOP</span>
             <ArrowUp className="w-3.5 h-3.5" />

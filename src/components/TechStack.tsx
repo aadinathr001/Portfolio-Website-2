@@ -43,29 +43,23 @@ export const TechStack: React.FC = () => {
 
         {/* Category Navigation Bar */}
         <div className="mb-12 border-b border-[#e6e6e1]">
-          <div className="flex items-center gap-3 sm:gap-6 overflow-x-auto pb-3 scrollbar-none">
-            {TECH_CATEGORIES.map((category, idx) => {
+          <div className="flex items-center gap-4 sm:gap-7 overflow-x-auto pb-3 scrollbar-none touch-pan-x">
+            {TECH_CATEGORIES.map((category) => {
               const isActive = activeCategory === category;
               const count = TECH_STACK_DATA[category]?.length || 0;
-              const numStr = String(idx + 1).padStart(2, "0");
 
               return (
                 <button
                   key={category}
                   onClick={() => handleCategoryChange(category)}
-                  className={`group relative pb-3 px-1 text-xs font-mono uppercase tracking-wider transition-colors flex items-center gap-2 whitespace-nowrap cursor-pointer ${
+                  className={`group relative pb-3 px-1 text-xs sm:text-sm font-mono uppercase tracking-wider transition-colors flex items-center whitespace-nowrap cursor-pointer ${
                     isActive ? "text-[#121212] font-semibold" : "text-[#767670] hover:text-[#121212]"
                   }`}
                 >
-                  <span
-                    className={`text-[10px] font-mono ${
-                      isActive ? "text-[#c26d52] font-bold" : "text-[#c26d52]/70"
-                    }`}
-                  >
-                    {numStr}
-                  </span>
                   <span>{category}</span>
-                  <span className="text-[10px] text-[#9a9a92]">({count})</span>
+                  <sup className="text-[10px] text-[#c26d52] font-mono font-semibold ml-1">
+                    {count}
+                  </sup>
 
                   {isActive && (
                     <span
@@ -79,9 +73,9 @@ export const TechStack: React.FC = () => {
           </div>
         </div>
 
-        {/* Two-Column Explorer */}
+        {/* Two-Column Explorer with Mobile Inline Expandable Spec */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column: Grid of Tools */}
+          {/* Left Column: Grid of Tools (and mobile inline spec card) */}
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {activeTechList.map((item, idx) => {
@@ -89,47 +83,92 @@ export const TechStack: React.FC = () => {
                 const rowNum = String(idx + 1).padStart(2, "0");
 
                 return (
-                  <button
-                    key={item.id}
-                    onClick={() => setSelectedTech(item)}
-                    type="button"
-                    className={`p-4 border transition-all text-left flex items-center justify-between group cursor-pointer ${
-                      isSelected
-                        ? "border-[#121212] bg-white shadow-sm"
-                        : "border-[#e6e6e1] bg-[#fbfbf9] hover:border-[#b8b8b0] hover:bg-white"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3 overflow-hidden">
-                      <span className="text-[10px] font-mono text-[#8a8a82] w-5">
-                        {rowNum}
-                      </span>
-                      <div className="w-7 h-7 border border-[#dcdcd4] bg-white flex items-center justify-center font-mono text-[10px] text-[#121212] font-bold shrink-0">
-                        {item.initials}
-                      </div>
-                      <span
-                        className={`text-xs sm:text-sm font-medium tracking-tight truncate ${
-                          isSelected ? "text-[#121212] font-bold" : "text-[#444440]"
-                        }`}
-                      >
-                        {item.name}
-                      </span>
-                    </div>
-
-                    <ArrowRight
-                      className={`w-3.5 h-3.5 transition-transform ${
+                  <React.Fragment key={item.id}>
+                    <button
+                      onClick={() => setSelectedTech(item)}
+                      type="button"
+                      className={`p-4 border transition-all text-left flex items-center justify-between group cursor-pointer ${
                         isSelected
-                          ? "text-[#121212] translate-x-0"
-                          : "text-[#b0b0a8] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
+                          ? "border-[#121212] bg-white shadow-sm ring-1 ring-[#121212]/10"
+                          : "border-[#e6e6e1] bg-[#fbfbf9] hover:border-[#b8b8b0] hover:bg-white"
                       }`}
-                    />
-                  </button>
+                    >
+                      <div className="flex items-center gap-3 overflow-hidden">
+                        <span className="text-[10px] font-mono text-[#8a8a82] w-5">
+                          {rowNum}
+                        </span>
+                        <div className="w-7 h-7 border border-[#dcdcd4] bg-white flex items-center justify-center font-mono text-[10px] text-[#121212] font-bold shrink-0">
+                          {item.initials}
+                        </div>
+                        <span
+                          className={`text-xs sm:text-sm font-medium tracking-tight truncate ${
+                            isSelected ? "text-[#121212] font-bold" : "text-[#444440]"
+                          }`}
+                        >
+                          {item.name}
+                        </span>
+                      </div>
+
+                      <ArrowRight
+                        className={`w-3.5 h-3.5 transition-transform ${
+                          isSelected
+                            ? "text-[#121212] translate-x-0"
+                            : "text-[#b0b0a8] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
+                        }`}
+                      />
+                    </button>
+
+                    {/* Inline Expandable Spec Card on Mobile Screens (< lg) */}
+                    {isSelected && (
+                      <div className="lg:hidden col-span-1 sm:col-span-2 p-5 bg-white border border-[#121212] shadow-sm my-1 animate-fadeIn">
+                        <div className="flex items-center justify-between pb-3 border-b border-[#e6e6e1] mb-4 text-[10px] font-mono uppercase tracking-wider text-[#7a7a72]">
+                          <span>SPEC // {formattedIndex} · {item.category}</span>
+                          <span className="text-[#c26d52] font-semibold">{item.type}</span>
+                        </div>
+
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-8 h-8 border border-[#121212] bg-[#fbfbf9] flex items-center justify-center font-mono text-xs font-bold text-[#121212] shrink-0">
+                            {item.initials}
+                          </div>
+                          <h3 className="font-['Manrope'] font-bold text-lg text-[#121212] tracking-tight">
+                            {item.name}
+                          </h3>
+                        </div>
+
+                        <p className="font-['Inter'] font-normal text-xs sm:text-sm text-[#42423e] leading-relaxed mb-4">
+                          {item.description}
+                        </p>
+
+                        {/* <div className="p-4 bg-[#fbfbf9] border border-[#e6e6e1] mb-6">
+                          <div className="text-[10px] font-mono uppercase tracking-widest text-[#72726c] mb-1">
+                            PRODUCTION USE CASE
+                          </div>
+                          <div className="text-xs font-medium text-[#121212] leading-relaxed">
+                            {item.goodFor}
+                          </div>
+                        </div> */}
+
+                        {item.docsUrl && (
+                          <a
+                            href={item.docsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#121212] hover:text-[#c26d52] font-semibold"
+                          >
+                            <span>OFFICIAL DOCUMENTATION</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                      </div>
+                    )}
+                  </React.Fragment>
                 );
               })}
             </div>
           </div>
 
-          {/* Right Column: Architectural Specification Panel */}
-          <div className="lg:col-span-5">
+          {/* Right Column: Architectural Specification Panel (Desktop lg: and up) */}
+          <div className="hidden lg:block lg:col-span-5 sticky top-24">
             {selectedTech && (
               <div className="p-7 sm:p-8 bg-white border border-[#e6e6e1] shadow-sm">
                 <div className="flex items-center justify-between pb-4 border-b border-[#e6e6e1] mb-6 text-[11px] font-mono uppercase tracking-wider text-[#7a7a72]">
